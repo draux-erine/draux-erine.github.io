@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+
+:root {
+    --fs-hero: clamp(3rem, 3.5rem + 2vw, 5rem);    /* Va de 48px à 80px (Titre Home)*/
+    --fs-h1: clamp(2rem, 1rem + 3vw, 3rem);      /* Va de 32px à 48px (Titres de Section)*/
+    --fs-h2: clamp(1.25rem, 1rem + 1.5vw, 1.75rem); /* Va de 20px à 28px (Titre page About Me)*/
+    --fs-h3: clamp(1.125rem, 1rem + 1vw, 1.5rem); /* Va de 18px à 24px (Titres H2/H3 dans les blocs)  */
+    --fs-h4: clamp(1rem, 0.9rem + 0.8vw, 1.25rem); /* Va de 16px à 20px (Titres d'éléments)*/
+    --fs-body: clamp(0.875rem, 0.75rem + 0.5vw, 1rem) /*(Corps de texte par défaut)*/;
+    --fs-small: 0.875rem; /* 14px (Petits textes, boutons) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.section-title,
+.section-title h1 {
+    /*font-family: Cambria, serif;*/
+    font-weight: bold;
+    text-align: left;
+    color: rgb(40, 16, 64);
+}
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+p {
+    font-size: var(--fs-body);
+    text-align: justify;
+}
+
+span {
+    font-size: var(--fs-small);
+}
+
+/* BARRE DE NAVIGATION */
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    position: fixed;
+    z-index: 10000;
+    background-color: white;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+#navbar ul li {
+    padding: 10px 25px;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #999;
+    transition: 0.5s;
+    text-align: center;
+}
+
+#navbar ul li a:hover {
+    background-color: rgb(176, 135, 215);
+    padding: 15px;
+    color: white;
+    font-weight: bolder;
+    border-radius: 20px;
+
+}
+
+/* Bouton hamburger (caché par défaut) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(40, 16, 64);
+    transition: 0.3s;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+    #navbar ul li {
+        padding: 10px 10px;
+    }
+    
+    #navbar ul li a {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    #navbar ul {
+        position: fixed;
+        left: -100%;
+        top: 40px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    #navbar ul.active {
+        left: 0;
+    }
+
+    #navbar ul li {
+        padding: 15px 0;
+    }
+
+    #navbar ul li a {
+        font-size: 1rem;
+    }
+
+    #navbar ul li a:hover {
+        padding: 15px 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 15px 3%;
+    }
+    
+    #navbar ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+/* MENU A GAUCHE */
+#side-navbar {
+    position: fixed;
+    left: 0;
+    margin-right: 50%;
+    width: 200px;
+    height: 100%;
+    background-color: #f4f4f4;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#side-navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-navbar ul li {
+    margin: 20px 0;
+}
+
+#side-navbar ul li a {
+    text-decoration: none;
+    color: #999;
+    padding: 10px;
+    display: block;
+    transition: 0.3s;
+}
+
+#side-navbar ul li a:hover {
+    color: rgb(176, 135, 215);
+    font-size: larger;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+#footer {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+}
+
+
+.separateur{
+    margin: 100px;
+}
+
+
+
+/*
+.separateur-transition {
+    border: none;
+    width: 100%;
+    margin: 0;
+}*/
+
+/*Animations
+@keyframes appear {
+    from {
+        opacity: o;
+        scale: 0.8;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+section {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+    */

@@ -1,0 +1,122 @@
+#mobility {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    background-color: #f7f7f7;
+}
+
+#mobility h1 {
+    text-align: center;
+}
+
+#map {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 1. Rendre l'image responsive par défaut */
+#mobility img {
+    max-width: 100%; /* L'image ne dépassera jamais la largeur de son conteneur */
+    height: auto;   /* Maintient les proportions de l'image */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#mobilite-description {
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#mobilite-description > div {
+    flex: 1;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#mobilite-description h2 {
+    color: #0056b3;
+    /*font-size: 1.5em;*/
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #0056b3;
+}
+
+.mobility-mails img{
+    cursor: pointer;
+}
+
+
+/* ================================================= */
+/* MEDIA QUERY POUR LA RESPONSIVITÉ         */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    /* 2. Empiler les deux blocs "Student exchanges" et "Leave with Airbus" */
+    #mobilite-description {
+        flex-direction: column;
+        gap: 20px; /* Légère réduction de l'espace entre les blocs empilés */
+        margin: 0 10px; /* Assure que les marges latérales sont bien gérées sur mobile */
+    }
+
+    /* Optionnel: Simplifier le padding sur mobile si nécessaire */
+    #mobility {
+        padding: 30px 10px; 
+    }
+}
+
+/* ================================================= */
+/* RENDRE LES IMAGES AGRANDiSSABLES          */
+/* ================================================= */
+/* Le conteneur de la modale (masqué par défaut) */
+.modal {
+    display: none; /* Cache la modale par défaut */
+    position: fixed; /* Reste en place même en faisant défiler */
+    z-index: 100; /* Se place au-dessus de tout */
+    left: 0;
+    top: 70px;
+    width: 100%; /* Pleine largeur */
+    height: 100%; /* Pleine hauteur */
+    overflow: auto; /* Permet le défilement si nécessaire */
+    background-color: rgba(0,0,0,0.9); /* Fond noir semi-transparent */
+    padding-top: 60px; /* Espace en haut */
+}
+
+/* L'image dans la modale */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* Largeur de l'image (ajustez si besoin) */
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* Bouton de fermeture (X) */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animation d'ouverture (facultatif) */
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}

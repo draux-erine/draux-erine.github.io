@@ -1,0 +1,120 @@
+#learning-log h1 {
+    padding: 20px;
+}
+
+.learning-log-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 50px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.strenght {
+    display: flex; 
+    flex-direction: row; 
+    width: 100%;
+    background-color: #ffffff; 
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 60px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.strenght:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
+}
+
+.strenghts-left{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    padding-right: 40px;
+    min-width: 150px;
+    border-right: 1px solid #eee; 
+}
+
+.strenght h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(147, 100, 190);
+    margin-top: 10px;
+}
+
+.strenght img {
+    width: 60px;
+    height: 60px;
+}
+
+.strenght p {
+    text-align: justify;
+    flex-grow: 1; 
+    padding-left: 40px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* Anneaux */
+.strenght::before {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 0;
+    bottom: 0;
+    width: 30px; 
+    /* Hauteur (height) est de 100% par défaut */
+    
+    /* On utilise UN SEUL radial-gradient pour le motif */
+    background: 
+        /* Création d'un seul anneau centré à 15px/15px */
+        radial-gradient(circle at 15px 15px, 
+            #c0c0c0 5px, /* Couleur intérieure */
+            #e8e8e8 5px, /* Bord intérieur de l'anneau */
+            #e8e8e8 7px, /* Bord extérieur de l'anneau */
+            transparent 7px /* Transparent autour de l'anneau */
+        );
+    
+    /* CORRECTION CLÉ 1: Définir la taille du motif. 
+       Largeur 30px, Hauteur 40px (Cela définit la distance entre chaque anneau) */
+    background-size: 30px 40px; 
+    
+    /* CORRECTION CLÉ 2: Répéter uniquement sur l'axe Y (vertical) */
+    background-repeat: repeat-y;
+    
+    /* Assurez-vous que l'anneau est bien visible même si le contenu est petit */
+    min-height: 100%;
+
+    border-radius: 1.5rem 0 0 1.5rem;
+    z-index: 1; /* Le mettre en dessous du contenu du bloc si besoin */
+}
+
+/* Media Query conservée */
+@media (max-width: 768px) {
+    .strenght {
+        flex-direction: column; 
+        padding: 20px;
+    }
+    
+    .strenghts-left {
+        padding-right: 0;
+        padding-bottom: 20px;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .strenght p {
+        padding-left: 0;
+    }
+
+    /* Optionnel : Masquer ou simplifier les anneaux en mobile si l'espace est limité */
+    .strenght::before {
+        display: none; 
+    }
+}

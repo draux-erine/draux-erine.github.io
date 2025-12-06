@@ -5,8 +5,771 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+    <link rel="stylesheet" href="../css/style-global.css">
+    <link rel="stylesheet" href="../css/style-home.css">
+    <link rel="stylesheet" href="../css/style-timeline.css">
+    <link rel="stylesheet" href="../css/style-aboutMe.css">
+    <link rel="stylesheet" href="../css/style-learning-log.css">
+    <link rel="stylesheet" href="../css/style-projects.css">
+    <link rel="stylesheet" href="../css/style-career.css">
+    <link rel="stylesheet" href="../css/style-resumes.css">
+    <link rel="stylesheet" href="../css/style-CSR.css">
+    <link rel="stylesheet" href="../css/style-mobility.css">
+    <link rel="stylesheet" href="../css/style-contact.css">
+    <script src="../javascript/hamburger-menu-script.js"></script>
+    <script src="../javascript/cards-caroussel-script.js"></script>
+    <script src="../javascript/projects-script.js"></script>
+    <script src="../javascript/image-slider-script.js"></script>
+    <script src="../javascript/timeline-script.js"></script>
+    <script src="../javascript/timeline-overlay-script.js"></script>
+    <script src="../javascript/career-script.js"></script>
+    <script src="../javascript//agrandir-img-script.js"></script>
 </head>
 
-<body>
-	<h1> Hello Word </h1>
+
+<header id="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+        <li><a href="#balise-home">Home</a></li>
+        <li><a href="#balise-about-me">About Me</a></li>
+        <li><a href="#balise-projects">Projects</a></li>
+        <li><a href="#balise-career">Career</a></li>
+        <li><a href="#balise-CSR">Civic Engagement</a></li>
+        <li><a href="#balise-mobility">Mobility</a></li>
+        <li><a href="#balise-contact">Contact</a></li>
+    </ul>
+</header>
+<main id="main-section">
+    <!-- Accueil -->
+    <div id="balise-home"></div>
+    <section id="home-section">
+        <div id="left-block">
+            <img id="img-home" src="../images/fond-accueil2.jpg" alt="image-accueil">
+        </div>
+        <div id="right-block">
+            <div id="presentation">
+                <div id="right-head">
+                    <div>
+                        <h1> Erine <br> DRAUX </h1>
+                    </div>
+                    <div id="picture">
+                        <img id="img-myself" src="../images/my-picture.jpg" alt="picture of myself">
+                    </div>
+                </div>
+                <div id="right-text">
+                    <p> Soon-to-be engineer, from ENSEEIHT in Toulouse. I look forward to specialize in Data Science and
+                        Big Data.
+                    </p>
+                    <p>Persevering, meticulous and comfortable with teamwork, I value completing projects with both
+                        technical rigor and creativity.
+                    </p>
+                </div>
+            </div>
+            <div id="btn-resumes">
+                <a href="#resumes"> Download my resumes</a>
+            </div>
+            <div class="fleche-scroll">
+                <span> </span>
+                <span> </span>
+            </div>
+        </div>
+    </section>
+
+    <hr class="separateur-transition">
+
+    <!-- About me  -->
+    <div id="balise-about-me"> </div>
+    <section id="about-me">
+        <div id="timeline">
+            <h1 class="section-title">Who Am I ?</h1>
+            <h2 id="journey-title">My journey </h2>
+            <section id="container">
+                <ul>
+                    <li>
+                        <h3 class="title"> ENSEEIHT </h3>
+                        <p>
+                            Joined the Computer Science department <br>
+                            In apprenticeship at Airbus Commercial Aircraft.
+                        </p>
+                        <a href="#balise-timeline-details" class="trigger-details" data-target="enseeiht-details"> Learn
+                            more</a>
+                        <span class="date">2025 - Today</span>
+                    </li>
+                    <li>
+                        <h3 class="title"> IUT de Toulouse - Site de Rangueil </h3>
+                        <p>
+                            Completion of a university technical diploma (DUT) in two years, <br>
+                            Specialized in Databases Adminsitration, Management and Exploitation
+                        </p>
+                        <a class="link trigger-details" href="#balise-timeline-details" data-target="IUT-details"> Learn
+                            more </a>
+
+                        <a class="link" href="#projects"> Discover some of my projects </a>
+                        <span class="date">2023 - 2025</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="timeline-overlay" class="overlay">
+            <div class="overlay-content">
+                <button class="close-overlay">&times;</button>
+                <div class="timeline-details active" id="enseeiht-details">
+                    <h2> ENSEEIHT </h2>
+                    <p>
+                        After obtaining my Higher National Diploma, I joined the ENSEEIHT's Digital Science department
+                        through an apprenticeship program. It represents a valuable opportunity to simultaneously deepen
+                        my
+                        theoretical knowledge and discover the professional world.
+                        The curriculum covers various subjects : programming fundamentals, the theoretical base of data
+                        science and applied mathematics and the essential concepts of system design and finally networks
+                        and
+                        communication.
+                    </p>
+                    <a href="#balise-career">Learn more about my apprenticeship </a>
+                </div>
+                <div class="timeline-details" id="IUT-details">
+                    <h2> IUT </h2>
+                    <p>
+                        In 2023, I enrolled in an IUT (University Institute of Technology) at the University of Toulouse
+                        for
+                        a program which was originally designed as a three-year Bachelor's degree (BUT). However, after
+                        two
+                        years, I chose to exit the program, thereby successfully obtaining the DUT (Diplôme
+                        Universitaire de
+                        Technologie), which is recognized internationally as a Higher National Diploma (HND) in order to
+                        get
+                        into ENSEEIHT. Following a generalized first year, I specialized in AGED (Administration,
+                        Exploitation, and Management of Databases). While this specialization was primarily focused on
+                        database administration and Data Science principles, the curriculum was structured to maintain
+                        essential versatility. It included targeted courses in Networking and Development, which ensured
+                        I
+                        acquired a robust technical foundation while simultaneously developing skills crucial for
+                        full-stack
+                        data projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <section id="interests-line">
+            <div class="img_lavender lav-gauche">
+                <img src="../images/lavender.png">
+            </div>
+            <div id="domaines-interets-section">
+                <h1 class="section-title"> What about my interests ?</h1>
+                <div>
+                    <h2 class="title-interets"> my areas of interest </h2>
+
+                    <div id="données">
+                        <h3 class="subtitle-interets"> Data related fields </h3>
+                        <p>Many subjects in the world of computer science arouse my curiosity, one of them is Big Data.
+                            Indeed, I find fascinating how valuable insights we can get from massive volumes of data. I
+                            had
+                            the chance to start discovering this subject during my years in th UIT by cleaning and
+                            re-organizing data to create PowerBI reports. It motivated me to continue on this path.
+                            However,
+                            big data is a large domain and currently I am discovering the world of Data Science thanks
+                            to my
+                            apprenticeship. I still have a lot to learn, but I am eager to discover more about it and
+                            eventually improve myself on subjects such as Artificial Intelligence. </p>
+
+                    </div>
+
+                </div>
+                <div id="autres">
+                    <h3 class="subtitle-interets"> Aside from computer science</h3>
+                    <section class="card-section">
+                        <div class="card-carousel-container">
+                            <button class="nav-arrow prev" id="prev-btn">
+                                &lt;
+                            </button>
+
+                            <div class="card-carousel">
+                                <div class="card" data-index="0">
+                                    <h3>Hiking</h3>
+                                    <img src="../images/rando1.jpg" class="insterest-img img-rando">
+                                </div>
+                                <div class="card" data-index="1">
+                                    <h3>Photography</h3>
+                                </div>
+                                <div class="card" data-index="2">
+                                    <h3>Manual Activities</h3>
+                                </div>
+                            </div>
+
+                            <button class="nav-arrow next" id="next-btn">
+                                &gt;
+                            </button>
+                        </div>
+
+                        <div class="text-display">
+                            <p id="description-text"> </p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="img_lavender lav-droite">
+                <img src="../images/lavender.png">
+            </div>
+        </section>
+    </section>
+
+    <section id="learning-log">
+        <h1 class="section-title"> Learning Log </h1>
+        <div class="learning-log-content">
+            <div class="strenght str1">
+                <div class="strenghts-left">
+                    <img src="../images/perseverance.png">
+                    <h2> Perseverance </h2>
+                </div>
+                <p>One of my key strengths is perseverance. Indeed, I always find ways to reach my goal no matter the
+                    difficulty that I have to overcome. This characteristic is particularly demonstrated in the academic
+                    and
+                    learning environment. Let’s take for example my first year of University : it was the first time for
+                    me
+                    discovering the programming language ADA and focusing truly on algorithmics. It was very hard for me
+                    to
+                    adjust and I failed my first project and exam in this subject. However I didn’t let it get to me and
+                    saw
+                    this as a way to prove myself. In order to improve myself, I decided to re-do all of the TP and to
+                    ask
+                    for advice from my professors and classmates which led me to better understand the mechanics behind
+                    this
+                    subject and I finally passed the second exam. </p>
+            </div>
+            <div class="strenght str2">
+                <div class="strenghts-left">
+                    <img src="../images/collaboration.png">
+                    <h2> Teamwork </h2>
+                </div>
+                <p>Another one of my strengths is teamwork and collaboration. This strength was particularly
+                    demonstrated
+                    during the “Nuit de l’Info”, a contest in which as a team we have to tackle computing challenges in
+                    one
+                    night. I participated in two editions : 2023 and 2024 but the most memorable for me was in 2024 in
+                    terms
+                    of collaboration. Indeed, we were a team of six computer science students, and in order to be
+                    effective,
+                    I suggested we start by brainstorming after reading the subject and the different challenges. This
+                    allowed us to make sure everyone had the same understanding of the theme and to choose the
+                    challenges we
+                    wanted to tackle. Once done, we decided to divide the group : two of us, including me, worked on a
+                    playful captcha, three other members worked on the main challenge and the challenge that seemed
+                    easier
+                    to us was tackled later during the night by one of the three group members. Of course, during the
+                    night
+                    I didn’t hesitate to ask for help when I faced difficulties and the other way around, I also helped
+                    my
+                    teammates and answered their questions or confusion.
+                    In the end we finished first for one challenge and on the podium for another one. It proved that we
+                    succeeded in working in a group and collaborating even within a short period of time and under a lot
+                    of
+                    pressure. </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mes projets -->
+    <div id="balise-projects"></div>
+    <section id="projects">
+        <div class="title-txt">
+            <h1 class="section-title"> What about my projects ?</h1>
+            <section id="IUT-projects">
+                <div class="list-project">
+                    <div class="project-item" data-target="details-p1">
+                        <h2>Projet 1 </h2>
+                        <p> A team project focused on data preprocessing (cleaning, missing value handling) and
+                            exploratory
+                            data analysis of the OpenFoodFacts database.
+                            We developed reports on factors influencing the Nutri-Score and applied Machine Learning
+                            models
+                            (via KNIME) to predict the score of new products.
+                        </p>
+                    </div>
+                    <div class="project-item" data-target="details-p2">
+                        <h2>Projet 2</h2>
+                        <p> Lorem ipsum dolor sit amet <br>
+                            Quisque faucibus ex sapien vitae <br>
+                            In id cursus mi pretium tellus <br>
+                            Lorem ipsum dolor sit amet <br>
+                            Quisque faucibus ex sapien vitae <br>
+                            In id cursus mi pretium tellus
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="all-projects-details">
+            <div class="project-details p1" id="details-p1">
+                <div>
+                    <h2> Project 1 : Database development and visualisation </h2>
+                </div>
+                <div class="project-txt-img">
+                    <div class="project-text-desc project-contenu">
+                        <div class="desc-ligne1">
+                            <div class="desc-card">
+                                <h3> Problem </h3>
+                                <p>
+                                    The purpose of this project was to clean, and analyse data of an open database:
+                                    OpenFoodFact by making reports to give precise insights on nutri-score. Once done,
+                                    another aim was to use Artificial Intelligence processes on Knime to determine the
+                                    nutri-score of certain products. The main difficulty resided in managing a vast
+                                    dataset characterized by a significant number of incomplete entries and missing
+                                    values, which presented a major challenge to delivering relevant and proper
+                                    analyses.
+                                </p>
+                            </div>
+                            <div class="desc-card">
+                                <h3> Outcome </h3>
+                                <p>
+                                    lorem ipsum
+                                </p>
+                            </div>
+                        </div>
+                        <div class="desc-ligne2">
+                            <div class="desc-card">
+                                <h3> My Role </h3>
+                                <p>
+                                    My role was polyvalent throughout the project. Indeed, I actively participated in
+                                    the design of the Conceptual Data Model (CDM), ensuring the data structure was
+                                    optimized for our analysis. I then took the initiative to deepen my skills by
+                                    handling the data cleaning and integration into the database, where I specifically
+                                    performed performance tests by utilizing both Python scripts and Knime workflows.
+                                    Furthermore, I was made responsible for creating the analysis reports on the impact
+                                    of labels and packaging on the Nutri-Score. Facing the challenge of a large volume
+                                    of incomplete entries and missing values, I demonstrated rigor and a strong
+                                    problem-solving mindset by implementing strict filtering strategies to overcome the
+                                    data scarcity and successfully deliver reliable and actionable insights. Finally, I
+                                    collaborated in the modeling phase by using various Artificial Intelligence
+                                    processes on Knime for Nutri-Score prediction. This project not only developed my
+                                    technical skills but also enhanced my transversal skills, notably my autonomy when
+                                    dealing with raw data, my complex problem-solving ability, and my team spirit.
+                                </p>
+                            </div>
+                            <div class="desc-card">
+                                <h3> Technique </h3>
+                                <p>
+                                    The project required a robust technical stack to achieve its goals. I utilized
+                                    Python for scripting and data cleaning, and the visual workflow platform Knime for
+                                    advanced data integration, processing, and the application of Artificial
+                                    Intelligence models. The data itself was sourced from the OpenFoodFacts API,
+                                    structured using the Conceptual Data Model (CDM) methodology, and managed within a
+                                    PostgreSQL database. For predictive modeling, I implemented and optimized various
+                                    Machine Learning algorithms, including Gradient Boosted Trees and Multi-Layer
+                                    Perceptron, to predict the Nutri-Score. Finally, Power BI was used for data
+                                    visualization and the creation of detailed analytical reports, translating complex
+                                    findings into actionable insights.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-contenu project-img">
+                        <div class="img-list">
+                            <img src="../images/Dashboard-labels-nutriscore.png" class="img-active p1-img"
+                                alt="projet 1 dashboard ">
+                            <!--<h4> Dashboard de l'impact des labels sur le nutriscore</h4>-->
+                            <img src="../images/Exemple-wf-knime-clusturing.png" alt="projet 1 workflow" class="p1-img">
+                            <!--<h4> Dashboard de l'impact des labels sur le nutriscore</h4>-->
+                        </div>
+                        <div class="img-slide-buttons">
+                            <span class="img-slide-next">&#10095;</span>
+                            <span class="img-slide-prev">&#10094;</span>
+                        </div>
+                        <div class="dots-container">
+                            <div class="dot img-active" attr='0' onclick="switchImage(this)"></div>
+                            <div class="dot" attr='1' onclick="switchImage(this)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills project-skills" role="list" aria-label="Compétences techniques">
+                    <span class="pill" role="listitem">Knime</span>
+                    <span class="pill" role="listitem">Data visualisation</span>
+                    <span class="pill" role="listitem">Data mining</span>
+                    <span class="pill" role="listitem">Dashboarding</span>
+                    <span class="pill" role="listitem">Teamwork</span>
+                </div>
+            </div>
+            <div class="project-details p2" id="details-p2">
+                <div>
+                    <img src="" alt="projet 2">
+                </div>
+                <div>
+                    <h2> Project 2 : Conception and implementation of an application </h2>
+                </div>
+                <div class="project-text-desc">
+
+                    <div class="desc-card">
+                        <h3> problem </h3>
+                        <p>
+                            The core challenge of this project was to conceive and develop a real estate management
+                            application based on client expectations and specifications. The initial difficulty lay in
+                            the analysis of the subject and needs, which required many exchanges with the client to
+                            fully grasp the complex business rules of the real estate sector. This led to the
+                            fundamental necessity of defining a clear Conceptual Data Model (CDM), which served as the
+                            essential blueprint for the application's implementation.
+                        </p>
+                    </div>
+                    <div class="desc-card">
+                        <h3> Outcome </h3>
+                        <p>
+                            The final outcome was a fully functional application developed in Java which passed all of
+                            the tests scenarios given. Beyond the successful delivery of the product itself, the project
+                            resulted in a significant reinforcement of my knowledge of Object-Oriented Programming (OOP)
+                            and my ability to set up robust software architectures. A crucial element of the deliverable
+                            included a comprehensive user guide to support the application's deployment.
+
+                        </p>
+                    </div>
+                    <div class="desc-card">
+                        <h3> My Role </h3>
+                        <p>
+                            After doing so, each one of us tried to use different IA processes on Knime to see if we
+                            could
+                            predict the nutri-score of newly added food, allowing me to discover supervised and
+                            unsupervised
+                            learning paradigms.
+                            Leveraging Supervised Learning on KNIME, I implemented and evaluated robust models,
+                            especially
+                            the Multi-Layer Perceptron (MLP)
+                            for classification (requiring normalized data) and the versatile Gradient Boosted Trees
+                            Learner
+                        </p>
+                    </div>
+                    <div class="desc-card">
+                        <h3> Technique </h3>
+                        <p>
+                            For the application's development we developed in Java (within the Eclipse IDE). We employed
+                            several best practices for code structuring to ensure high maintainability and clarity. Most
+                            notably, we implemented the Data Access Object (DAO) design pattern. This technical approach
+                            was key to achieving a clear and clean separation between the business logic layer and the
+                            underlying data management layer, allowing for a highly modular and organized codebase. We
+                            also chose to follow the Model-View-Controller architecture in order to
+                        </p>
+                    </div>
+                </div>
+                <div class="skills project-skills" role="list" aria-label="Compétences techniques">
+                    <span class="pill" role="listitem">Knime</span>
+                    <span class="pill" role="listitem">Data visualisation</span>
+                    <span class="pill" role="listitem">Data mining</span>
+                    <span class="pill" role="listitem">Dashboarding</span>
+                    <span class="pill" role="listitem">Teamwork</span>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Career -->
+    <div id="balise-career"></div>
+    <section id="career">
+        <div class="section-title career-title">
+            <h1>My experiences : Internships and Apprenticeship </h1>
+        </div>
+
+        <div class="career-content">
+            <div id="item-alternance1" class="timeline-group">
+
+                <div id="tab-alternance1" class="career-timeline-item active" data-target-id="details-alternance1">
+                    <h4>Alternance - Data Science </h4>
+                    <div class="career-meta">Septembre 2025 - Aout 2028, Airbus</div>
+                    <p class="career-description">Mise en place de monitoring de volumétrie, réalisation de
+                        dashboards sur la plateforme interne,
+                        intégration d'un projet d'autocoding</p>
+                </div>
+
+                <section class="career-details-pane active" id="details-alternance1" role="tabpanel"
+                    aria-labelledby="tab-alternance1">
+                    <div class="career-card">
+                        <div class="card-header">
+                            <h3>Airbus Commercial Aircraft</h3>
+                            <div class="career-dates">September 2025 — Agust 2028</div>
+                        </div>
+                        <div class="role">Data Scientist Apprentice </div>
+                        <p>
+                            The primary goal for this initial period was to understand and to familiarise myself with
+                            the operational system and the challenges related to fleet diagnostics (linking in-flight
+                            issues to fleet-wide problems).
+                        </p>
+                        <p>
+                            I was responsible for implementing volumetric monitoring and creating initial data
+                            visualization dashboards on the internal platform. Moreover, I will contribute to the
+                            validation of an autocoding project.
+                        </p>
+                        <p>
+                            This initial work involved applying and developing skills with specific data processing
+                            frameworks like PySpark and Polars. I utilized a dedicated dashboarding tool on the internal
+                            platform for visualization.
+                        </p>
+                        <div class="skills career-skills" role="list" aria-label="Compétences techniques">
+                            <span class="pill" role="listitem">PySpark</span>
+                            <span class="pill" role="listitem">Polars</span>
+                            <span class="pill" role="listitem">Machine learning</span>
+                            <span class="pill" role="listitem">Monitoring</span>
+                            <span class="pill" role="listitem">Performance</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="item-stageBUT" class="timeline-group">
+
+                <div id="tab-stageBUT" class="career-timeline-item" data-target-id="details-stageBUT">
+                    <h4>Internship</h4>
+                    <div class="career-meta">April 2025 - Juine 2025, INEO ES</div>
+                    <p class="career-description">Database replication in a redundant system</p>
+                </div>
+
+                <section class="career-details-pane" id="details-stageBUT" role="tabpanel"
+                    aria-labelledby="tab-stageBUT">
+                    <div class="career-card">
+                        <div class="card-header">
+                            <h3>INEO ES</h3>
+                            <div class="career-dates">April — June 2024</div>
+                        </div>
+                        <!--<div class="career-role"> Data </div>-->
+                        <p>
+                            The company’s redundancy system experienced data inconsistencies during server failover. The
+                            main goal of this internship was therefore to enhance the system resilience. My mission
+                            involved identifying and implementing a database replication solution.
+                        </p>
+                        <p>
+                            This stage successfully identified two viable data replication solutions suitable for the
+                            company's two-server infrastructure. The initial research and testing phase resulted in the
+                            elimination of multiple incompatible tools (including specific database and synchronization
+                            mechanisms), which defined the final scope of deployment. I then focused on the
+                            implementation of one solution, creating the necessary Java integration code and performing
+                            functional tests to confirm its ability to replicate data and maintain consistency during
+                            failover events. I delivered a comprehensive technical analysis, code samples, and
+                            architectural diagrams. These materials provide the internal team with the practical
+                            groundwork required to deploy the chosen replication system, ensuring the coherence of
+                            critical alarm data and supporting service availability.
+                        </p>
+                        <p>
+                            My role during this three-month internship was centered on improving data consistency in the
+                            redundant server environment. I was responsible for conducting the comparative study and
+                            hands-on testing of various database replication solutions. After selecting the most
+                            suitable mechanisms, my primary contribution involved developing the Java code for a to
+                            integrate the chosen system with the existing application architecture. I ensured detailed
+                            documentation of the findings and the implementation steps, delivering the technical
+                            foundation for the project’s next phase.
+                        </p>
+                        <p>
+                            This project required applying and expanding expertise across several key technologies. The
+                            implementation was conducted entirely within a Linux environment, utilizing Ubuntu Virtual
+                            Machines for system setup and testing. I gained hands-on experience with several database
+                            technologies including MongoDB, SQLite, and Redis, and focused heavily on evaluating various
+                            data replication mechanisms (Master-Replica models). The integration work involved Java
+                            development (utilizing class diagrams and adhering to best practices) to interface with the
+                            core application. For advanced troubleshooting, I used Wireshark for deep TCP exchange
+                            analysis, and relied on application logs and tools like JConsole to monitor system behavior
+                            and validate data consistency.
+                        </p>
+
+                        <div class="skills career-skills" role="list" aria-label="Compétences techniques">
+                            <span class="pill" role="listitem">Java</span>
+                            <span class="pill" role="listitem">Database Replication</span>
+                            <span class="pill" role="listitem">SQLite</span>
+                            <span class="pill" role="listitem">Testing</span>
+                        </div>
+                        <div class="career-cta">
+                            <a href="#" class="btn" role="button">Télécharger rapport</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="balise-resumes"></div>
+        <div class="resumes">
+            <div class="docs-container">
+                <div class="doc-title">
+                    <h2>French Resume</h2>
+                </div>
+
+                <div class="docs">
+                    <a href="../docs/CV-Draux-Erine-Fr.pdf" target="_blank">
+                        <img class="img-cv" src="../images/CV-fr.jpg" alt="CV en français">
+                    </a>
+                </div>
+            </div>
+            <div class="docs-container">
+                <div class="doc-title">
+                    <h2>English Resume</h2>
+                </div>
+
+                <div class="docs">
+                    <a href="../docs/CV-Draux-Erine-En.pdf" target="_blank">
+                        <img class="img-cv" src="../images/CV-en.jpg" alt="CV en anglais">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <span class="seperateur"> </span>
+
+    <div id="balise-roleModels"> </div>
+    <section>
+        <div class="section-title">
+            <h1> Networking </h1>
+        </div>
+        <div class="FirstPerson">
+            <h2> Olivier Clausel </h2>
+            I had the chance to exchange with him on many occasions
+        </div>
+        <div class="SecondPerson">
+            
+        </div>
+    </section>
+
+    <!-- CSR -->
+    <div id="balise-CSR"></div>
+    <section id="CSR">
+        <div class="section-title">
+            <h1> Corporate Social Responsibility (CSR) commitments</h1>
+        </div>
+        <div class="CSR-texts">
+            <h3> Why is it important</h3>
+            <p> In my opinion, the importance of CSR in engineering is significant. Indeed, CSR commitments allow us to
+                step outside of our comfort zone and technical world in order to be more considerate of other factors
+                such as ethical, social or environmental.
+                By doing so, it allows us to build our sense of responsibility and thus to create solutions more adapted
+                and relevant to the world we live in. For me, it's also what makes us more unique because each one of us
+                will take part in distinct CSR commitments and experience
+                it in a different way, leading to learning more about who we are and the engineer we want to become.
+            </p>
+        </div>
+        <div>
+            <br>
+            <h3> My commitments </h3>
+            <div class="sensibilisation">
+                <div class="flip-card">
+                    <div class="flip-card-content">
+                        <div class="fresque flip-card-front">
+                            <h3> Digital Fresk & Climate Fresk </h3>
+                        </div>
+                        <div class="fresque-numerique flip-card-back">
+                            <h3> Digital Fresk </h3>
+                            <p>The Digital Fresk (or La Fresque du Numérique) is an engaging and collaborative workshop
+                                created to raise awareness about the environmental and societal challenges of digital
+                                technology.
+                                Using a serious game format, we work together to organize cards detailing the causes and
+                                consequences of digital impact (from
+                                device manufacturing to data center usage). The goal is to gain a
+                                comprehensive understanding of the issue and collectively identify tangible actions and
+                                solutions in order to build a more sustainable and responsible digital world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-content">
+                        <div class="fresque-numerique flip-card-front">
+                            <h3> Futurs Proches Festival </h3>
+                            <img src="../images/logo-futurs-proches.png" class="flip-card-illustration">
+                        </div>
+                        <div class="futurs-proches flip-card-back">
+                            <h3> Futurs Proches Festival </h3>
+                            <p> The "Futurs proches" festival is an event where activities tackling different subjects
+                                allowing us to collectively explore possible futures.
+                                I participated twice allowing me to cover several activites. One that particularly
+                                impacted
+                                me was my visit to the IRIT lab. It was focused on "The Future of Mobility by NeOCampus"
+                                and
+                                provided a clear perspective on how intelligent systems are reshaping urban movement. I
+                                observed practical demonstrations of autonomous delivery
+                                robots capable of navigating complex spaces and smart public transport solutions,
+                                including the development of an autonomous campus shuttle. A key takeaway was
+                                understanding the
+                                importance of integrated infrastructure, such as the private 5G network facilitating
+                                communication
+                                between vehicles and the use of smart sensors on light posts and roads to gather
+                                critical data
+                                on traffic flow. This activity highlighted the exciting challenge of building seamlessly
+                                connected environments, where intelligent design ensures both safety and efficiency for
+                                all users.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobility -->
+    <div id="balise-mobility"></div>
+    <section id="mobility">
+        <h1 class="section-title"> Mobility </h1>
+        <div id="map">
+            <img src="../images/carte-mobilite.jpg">
+        </div>
+        <div id="mobilite-description">
+            <div>
+                <h2> Student exchanges </h2>
+                <p> Knowing I want to improve and focus on data science, one of the best countries for me to do my
+                    mobility is Germany.
+                    Indeed, this country is one of the most advanced on this sector.
+                    The university I target is Damstard University.
+                </p>
+            </div>
+            <div>
+                <div>
+                    <h2> Leave with Airbus </h2>
+                    <p> With Airbus, two mobility destinations are offered : Spain and Germany.
+                        However, there aren't any data science department in those countries.
+                        That's why, it would be more interesting for me to do my mobility in an another university.
+                    </p>
+                </div>
+                <div class="mobility-mails">
+                    <img src="../images/Mail-HR.png" onclick="openModal('../images/Mail-HR.png')">
+                    <img src="../images/Mail-HR-Rep.png" onclick="openModal('../images/Mail-HR-Rep.png')">
+                </div>
+                <div id="imageModal" class="modal" onclick="closeModal()">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
+                    <div id="caption"> Mails sent about mobility </div>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- Contact -->
+    <div id="balise-contact"></div>
+    <section id="contact">
+        <div class="contact-content">
+            <div class="section-title">
+                <h1>Contact</h1>
+            </div>
+
+            <p class="contact-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.Lodms
+            </p>
+
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/erine-draux-17437a329/" target="_blank" class="contact-btn">
+                    <i class="fab fa-linkedin-in"></i>
+                    LinkedIn
+                </a>
+                <a href="mailto:d31.erine@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer">
+    au revoir
+    <a href="https://www.flaticon.com/free-icons/perseverance" title="perseverance icons">Perseverance icons created by
+        pojok d - Flaticon</a>
+    <div> Icons made by <a href="https://www.flaticon.com/authors/gravisio" title="gravisio"> gravisio </a> from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+</footer>
 </body>
+
+</html>

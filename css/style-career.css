@@ -1,0 +1,269 @@
+#career a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#career {
+    /*max-width: 1200px;*/
+    padding: 40px;
+    border-radius: 20px;
+
+}
+
+.career-title{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+    
+}
+
+.career-content {
+    display: block;
+    gap: 0;
+}
+
+/* Timeline (La zone devient pleine largeur et perd ses décorations de ligne) */
+.career-timeline {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Important pour que les onglets et détails s'enchaînent */
+    padding-left: 0;
+    position: static;
+}
+
+.career-timeline-item {
+    cursor: pointer;
+    padding: 18px 20px;
+    margin-bottom: 8px;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(77, 58, 160, 0.08);
+    border: 1px solid rgba(124, 98, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    position: relative;
+    transform: none;
+    display: block;
+}
+
+.career-timeline-item:hover {
+    background: rgba(197, 180, 255, 0.15);
+    transform: none;
+    /* Désactiver le décalage horizontal au survol */
+    box-shadow: 0 8px 30px rgba(117, 86, 255, 0.15);
+}
+
+.career-timeline-item.active {
+    background: rgba(197, 180, 255, 0.25);
+    box-shadow: 0 10px 40px rgba(117, 86, 255, 0.25);
+    border-color: rgba(123, 97, 255, 0.2);
+    transform: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+}
+
+.career-timeline-item.active::before {
+    content: none;
+}
+
+.career-timeline-item h4 {
+    /*font-size: 16px;*/
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: #2b2540;
+}
+
+.career-meta {
+    /*font-size: 13px;*/
+    color: #7b6f9a;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.career-description {
+    /*font-size: 13px;*/
+    color: #7b6f9a;
+    line-height: 1.5;
+}
+
+.career-details-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.career-details-pane {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-top: -8px;
+    padding-top: 0;
+    margin-bottom: 24px;
+    transform: translateY(10px);
+    transition: max-height 0.5s ease-out, opacity 0.4s ease-out, transform 0.4s ease-out;
+    pointer-events: none;
+}
+
+.career-details-pane.active {
+    opacity: 1;
+    visibility: visible;
+    max-height: 1500px;
+    padding: 0;
+    margin-bottom: 24px;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.career-card {
+    border-radius: 18px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid rgba(124, 98, 255, 0.1);
+    box-shadow: 0 12px 40px rgba(77, 58, 160, 0.12);
+    position: relative;
+    overflow: hidden;
+    /* Lier visuellement à l'onglet au-dessus */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Le reste des styles de carte sont conservés */
+.career-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #a58cff 0%, #cdbaff 100%);
+}
+
+.career-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 20px;
+}
+
+.career-card h3 {
+    margin: 0;
+    color: #7b61ff;
+    /*font-size: 20px;*/
+    font-weight: 700;
+}
+
+.career-dates {
+    /*font-size: 14px;*/
+    color: #7b6f9a;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 4px 12px;
+    background: rgba(123, 97, 255, 0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(123, 97, 255, 0.1);
+}
+
+.career-role {
+    /*font-size: 15px;*/
+    color: #7b6f9a;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.career-card p {
+    color: #2b2540;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    /*font-size: 15px;*/
+}
+
+/* Skills pills */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pill {
+    /*font-size: 13px;*/
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(123, 97, 255, 0.08);
+    border: 1px solid rgba(123, 97, 255, 0.12);
+    transition: all 0.2s ease;
+}
+
+.career-skills .pill {
+    color: #7b61ff;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(123, 97, 255, 0.2);
+}
+
+.career-skills .pill:hover {
+    background: rgba(123, 97, 255, 0.15);
+}
+
+/* CTA */
+.career-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+    align-items: center;
+}
+
+.career .btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #a58cff 0%, #cdbaff 100%);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    /*font-size: 14px;*/
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(165, 140, 255, 0.3);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.career .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(165, 140, 255, 0.4);
+}
+
+.career .link {
+    text-decoration: none;
+    color: #7b61ff;
+    /*font-size: 14px;*/
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(123, 97, 255, 0.2);
+}
+
+.career .link:hover {
+    background: rgba(123, 97, 255, 0.08);
+    color: #5a47cc;
+}
+
+/* Focus styles pour l'accessibilité */
+.career-timeline-item:focus,
+.btn:focus,
+.link:focus {
+    outline: 2px solid #7b61ff;
+    outline-offset: 2px;
+}

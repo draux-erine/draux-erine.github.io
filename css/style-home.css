@@ -1,0 +1,241 @@
+/* Configuration de base */
+#home-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px; 
+}
+
+#home-section #left-block {
+    flex: 0 0 50%;
+}
+
+#home-section #left-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+#home-section #right-block {
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* En-tête avec nom et photo */
+#right-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+#home-section h1 {
+    padding-bottom: 0;
+    padding-top: 0;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgb(103, 67, 138);
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* Photo de profil */
+#picture {
+    order: 0;
+    flex-shrink: 0;
+}
+
+#picture #img-myself {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Texte de présentation */
+#right-text {
+    margin-bottom: 5%;
+}
+
+#right-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#presentation {
+    margin-bottom: 10%;
+}
+
+/* Bouton CV */
+#btn-resumes {
+    margin-bottom: 5%;
+}
+
+#btn-resumes a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: rgb(147, 100, 190);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#btn-resumes a:hover {
+    color: rgb(147, 100, 190);
+    background-color: white;
+    border: rgb(147, 100, 190) solid 1px;
+}
+
+/* Flèche de scroll */
+.fleche-scroll {
+    align-self: center;
+    margin-top: auto;
+}
+
+.fleche-scroll span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid rgb(147, 100, 190);
+    border-right: 5px solid rgb(147, 100, 190);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 2s infinite;
+}
+
+.fleche-scroll span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.fleche-scroll span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+/* ===== RESPONSIVE - TABLETTES ===== */
+@media screen and (max-width: 1024px) {
+    #home-section h1 {
+        font-size: 60px;
+    }
+    
+    #picture #img-myself {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* ===== RESPONSIVE - MOBILE/TABLETTE ===== */
+@media screen and (max-width: 768px) {
+    #home-section {
+        flex-direction: column;
+        padding-top: 70px; 
+        min-height: auto;
+    }
+    
+    #home-section #left-block {
+        display: none;
+    }
+    
+    #home-section #right-block {
+        flex: 1;
+        width: 100%;
+        padding: 8% 5% 10% 5%;
+    }
+
+    #right-head {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 8%;
+    }
+    
+    #picture {
+        order: -1;
+        margin-bottom: 25px;
+    }
+    
+    #picture #img-myself {
+        width: 140px;
+        height: 140px;
+    }
+
+    #home-section h1 {
+        text-align: center;
+    }
+    
+
+    #right-text {
+        text-align: justify;
+        margin-bottom: 8%;
+    }
+    
+
+    #btn-resumes {
+        text-align: left;
+        margin-bottom: 8%;
+    }
+}
+
+/* ===== RESPONSIVE - PETITS MOBILES ===== */
+@media screen and (max-width: 480px) {
+    #home-section {
+        padding-top: 60px;
+    }
+    
+    #picture #img-myself {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #home-section h1 {
+        font-size: 40px;
+    }
+    
+    #btn-resumes a {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .fleche-scroll span {
+        width: 25px;
+        height: 25px;
+        border-bottom: 4px solid rgb(147, 100, 190);
+        border-right: 4px solid rgb(147, 100, 190);
+    }
+}
+
+/* ===== RESPONSIVE - TRÈS GRANDS ÉCRANS ===== */
+@media screen and (min-width: 1400px) {
+    #home-section h1 {
+        font-size: 90px;
+    }
+    
+    #picture #img-myself {
+        width: 170px;
+        height: 170px;
+    }
+}
