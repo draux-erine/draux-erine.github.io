@@ -1,11 +1,11 @@
-/* Configuration de base */
 #home-section {
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    min-height: 100vh;
-    padding-top: 80px; 
+    height: 100vh; 
+    min-height: 600px; 
+    padding-top: 0; 
 }
 
 #home-section #left-block {
@@ -20,24 +20,27 @@
 }
 
 #home-section #right-block {
-    padding-bottom: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-top: 5%;
+    padding: 5%;
     flex: 1;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
 }
 
-/* En-tête avec nom et photo */
+#presentation {
+    width: 100%;
+    max-width: 600px; 
+    margin-bottom: 30px;
+}
+
 #right-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 3%;
+    margin-bottom: 30px;
 }
 
 #home-section h1 {
@@ -63,23 +66,20 @@
     object-fit: cover;
 }
 
-/* Texte de présentation */
 #right-text {
-    margin-bottom: 5%;
+    margin-bottom: 30px;
 }
 
 #right-text p {
     margin-bottom: 15px;
     line-height: 1.6;
+    text-align: left;
 }
 
-#presentation {
-    margin-bottom: 10%;
-}
-
-/* Bouton CV */
 #btn-resumes {
-    margin-bottom: 5%;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
 }
 
 #btn-resumes a {
@@ -90,18 +90,24 @@
     background-color: rgb(147, 100, 190);
     display: inline-block;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(147, 100, 190, 0.3);
 }
 
 #btn-resumes a:hover {
     color: rgb(147, 100, 190);
     background-color: white;
-    border: rgb(147, 100, 190) solid 1px;
+    border: rgb(147, 100, 190) solid 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147, 100, 190, 0.4);
 }
 
-/* Flèche de scroll */
+/* Flèche de scroll - positionnée en bas du bloc droit */
 .fleche-scroll {
-    align-self: center;
-    margin-top: auto;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 .fleche-scroll span {
@@ -147,14 +153,18 @@
         width: 130px;
         height: 130px;
     }
+    
+    #home-section {
+        min-height: 500px;
+    }
 }
 
 /* ===== RESPONSIVE - MOBILE/TABLETTE ===== */
 @media screen and (max-width: 768px) {
     #home-section {
         flex-direction: column;
-        padding-top: 70px; 
-        min-height: auto;
+        height: 100vh;
+        min-height: 600px;
     }
     
     #home-section #left-block {
@@ -164,18 +174,23 @@
     #home-section #right-block {
         flex: 1;
         width: 100%;
-        padding: 8% 5% 10% 5%;
+        padding: 5%;
+        justify-content: center;
+    }
+
+    #presentation {
+        margin-bottom: 25px;
     }
 
     #right-head {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 8%;
+        margin-bottom: 25px;
     }
     
     #picture {
         order: -1;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
     
     #picture #img-myself {
@@ -185,25 +200,32 @@
 
     #home-section h1 {
         text-align: center;
+        font-size: 50px;
     }
-    
 
     #right-text {
-        text-align: justify;
-        margin-bottom: 8%;
+        text-align: center;
+        margin-bottom: 25px;
     }
     
+    #right-text p {
+        text-align: center;
+    }
 
     #btn-resumes {
-        text-align: left;
-        margin-bottom: 8%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .fleche-scroll {
+        bottom: 20px;
     }
 }
 
 /* ===== RESPONSIVE - PETITS MOBILES ===== */
 @media screen and (max-width: 480px) {
     #home-section {
-        padding-top: 60px;
+        min-height: 550px;
     }
     
     #picture #img-myself {
@@ -218,6 +240,10 @@
     #btn-resumes a {
         padding: 12px 25px;
         font-size: 14px;
+    }
+    
+    .fleche-scroll {
+        bottom: 15px;
     }
     
     .fleche-scroll span {
@@ -237,5 +263,39 @@
     #picture #img-myself {
         width: 170px;
         height: 170px;
+    }
+    
+    #presentation {
+        max-width: 700px;
+    }
+    
+    #btn-resumes {
+        max-width: 700px;
+    }
+}
+
+/* ===== HAUTEURS D'ÉCRAN COURTES ===== */
+@media screen and (max-height: 700px) {
+    #home-section {
+        min-height: auto;
+        height: auto;
+        padding: 80px 0 40px 0;
+    }
+    
+    #home-section h1 {
+        font-size: 60px;
+    }
+    
+    #picture #img-myself {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fleche-scroll {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
     }
 }

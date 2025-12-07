@@ -23,14 +23,12 @@
     gap: 0;
 }
 
-/* Timeline (La zone devient pleine largeur et perd ses décorations de ligne) */
 .career-timeline {
     flex: 0 0 100%;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
-    /* Important pour que les onglets et détails s'enchaînent */
     padding-left: 0;
     position: static;
 }
@@ -53,7 +51,6 @@
 .career-timeline-item:hover {
     background: rgba(197, 180, 255, 0.15);
     transform: none;
-    /* Désactiver le décalage horizontal au survol */
     box-shadow: 0 8px 30px rgba(117, 86, 255, 0.15);
 }
 
@@ -72,14 +69,12 @@
 }
 
 .career-timeline-item h4 {
-    /*font-size: 16px;*/
     margin: 0 0 8px 0;
     font-weight: 600;
     color: #2b2540;
 }
 
 .career-meta {
-    /*font-size: 13px;*/
     color: #7b6f9a;
     margin-bottom: 8px;
     font-weight: 500;
@@ -128,12 +123,10 @@
     box-shadow: 0 12px 40px rgba(77, 58, 160, 0.12);
     position: relative;
     overflow: hidden;
-    /* Lier visuellement à l'onglet au-dessus */
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
 
-/* Le reste des styles de carte sont conservés */
 .career-card::before {
     content: '';
     position: absolute;
@@ -215,7 +208,6 @@
     background: rgba(123, 97, 255, 0.15);
 }
 
-/* CTA */
 .career-cta {
     display: flex;
     gap: 14px;
@@ -260,7 +252,6 @@
     color: #5a47cc;
 }
 
-/* Focus styles pour l'accessibilité */
 .career-timeline-item:focus,
 .btn:focus,
 .link:focus {
@@ -271,7 +262,7 @@
 .video-container {
     position: relative;
     width: 100%;
-    margin: 0 auto; /* centre la vidéo */
+    margin: 0 auto; 
     padding-bottom: 56.25%; /* ratio 16:9 */
     height: 0;
 }

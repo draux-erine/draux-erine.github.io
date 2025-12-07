@@ -205,9 +205,6 @@ header {
 }
 
 /* FOOTER */
-/* ============================================
-   FOOTER - CRÉDITS ICÔNES
-   ============================================ */
 
 #footer {
     background: linear-gradient(135deg, rgb(124, 93, 153), rgb(161, 131, 190));
@@ -217,7 +214,6 @@ header {
     margin-top: 60px;
 }
 
-/* Container des crédits - Une seule ligne */
 .footer-credits {
     display: flex;
     flex-direction: row;
@@ -230,18 +226,16 @@ header {
     font-size: 0.85rem;
 }
 
-/* Titre du footer */
 .footer-credits h3 {
     color: white;
     font-size: 1rem;
     font-weight: 500;
     margin-right: 10px;
     letter-spacing: 0.5px;
-    flex-basis: 100%; /* Force le titre sur sa propre ligne */
+    flex-basis: 100%; 
     margin-bottom: 10px;
 }
 
-/* Chaque ligne de crédit - inline */
 .footer-credits .credit-item {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 8px 15px;
@@ -257,7 +251,6 @@ header {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Séparateur entre les crédits */
 .footer-credits .credit-item:not(:last-child)::after {
     content: "•";
     margin-left: 20px;
@@ -265,7 +258,6 @@ header {
     font-weight: bold;
 }
 
-/* Liens dans le footer */
 #footer a {
     color: white;
     text-decoration: none;
@@ -280,7 +272,6 @@ header {
     border-bottom-color: rgb(234, 227, 240);
 }
 
-/* Copyright ou mention supplémentaire */
 .footer-copyright {
     margin-top: 20px;
     padding-top: 15px;

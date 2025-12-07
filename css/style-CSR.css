@@ -1,4 +1,4 @@
-/*On ne peut pas mettre display flex car sinn carte se décale qd retourne*/
+/*On ne peut pas mettre display flex car sinon carte se décale quand retourne*/
 #CSR {
     position: relative;
     z-index: 1;
@@ -19,7 +19,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
     opacity: 0.6;
     filter: blur(10px);
 }
@@ -35,40 +34,40 @@
 }
 
 .flip-card {
-  position: relative;
-  width: 600px;
-  height: 350px;
-  perspective: 500px;
+    position: relative;
+    width: 600px;
+    height: 350px;
+    perspective: 500px;
 }
 
 .flip-card-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
 }
 
-.flip-card-content h3{
-  text-align: center;
+.flip-card-content h3 {
+    text-align: center;
 }
 
 .flip-card:hover .flip-card-content {
-  transform: rotateY(180deg) ;
-  transition: transform 0.8s;
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
 }
 
 .flip-card-front,
 .flip-card-back {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: white;
-  color: #000000;
-  border-radius: 5px;
-  backface-visibility: hidden;
-  padding: 30px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: white;
+    color: #000000;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    padding: 30px;
 }
 
 .flip-card-front {
@@ -80,18 +79,85 @@
 }
 
 .flip-card-back {
-  background: rgba(121, 163, 164);
-  color: white;
-  transform: rotateY(180deg);
-  overflow: auto;
+    background: rgba(121, 163, 164);
+    color: white;
+    transform: rotateY(180deg);
+    overflow: auto;
 }
+
+.fresks-img {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+}
+
+
+.fresks-img img {
+    width: 45%; 
+    height: auto;
+    object-fit: contain; 
+    max-height: 200px; 
+}
+
 
 .flip-card-illustration {
     display: block;
-    max-width: 100%;
-    height: auto;   
-    /* Optionnel : Centrer l'image si elle est plus petite que 100% */
-    margin-left: auto;
-    margin-right: auto; 
-    width: 60%;
+    max-width: 60%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    margin: 0 auto; 
+}
+
+#CSR .csr-subtitle {
+    color: rgb(5, 0, 17);
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .flip-card {
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+    }
+    
+    .fresks-img {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    
+    .fresks-img img {
+        width: 70%; 
+        max-height: 150px;
+    }
+    
+    .flip-card-illustration {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #CSR {
+        padding: 30px 15px;
+    }
+    
+    .flip-card {
+        height: 350px;
+    }
+    
+    .flip-card-front,
+    .flip-card-back {
+        padding: 20px;
+    }
 }

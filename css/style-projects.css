@@ -147,28 +147,24 @@ a {
     flex-direction: column;
 }
 
-/* Le wrapper actif doit être visible */
 .img-wrapper.img-active {
     left: 0%;
 }
 
-/* Cacher les wrappers non actifs */
 .img-wrapper:not(.img-active) {
     left: -100%;
 }
 
-/* L'image elle-même - IMPORTANT : laisser de l'espace pour le caption */
 .img-wrapper img {
     width: 100%;
-    height: calc(100% - 55px); /* Soustraire la hauteur du caption */
+    height: calc(100% - 55px); 
     object-fit: contain;
     flex-shrink: 0;
 }
 
-/* Style du sous-titre (caption) */
 .img-caption {
     width: 100%;
-    min-height: 55px; /* Hauteur fixe pour cohérence */
+    min-height: 55px;
     padding: 15px 20px;
     background: linear-gradient(to top, rgba(124, 93, 153, 0.95), rgba(124, 93, 153, 0.85));
     color: white;
@@ -180,10 +176,9 @@ a {
     align-items: center;
     justify-content: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0; /* Ne pas réduire la taille */
+    flex-shrink: 0; 
 }
 
-/* Alternative : sous-titre discret (ajouter classe "subtle") */
 .img-caption.subtle {
     background: rgba(0, 0, 0, 0.75);
     font-size: 14px;
@@ -191,11 +186,11 @@ a {
     min-height: 45px;
 }
 
-/* Alternative : sous-titre en haut (ajouter classe "top") */
+
 .img-caption.top {
     background: linear-gradient(to bottom, rgba(124, 93, 153, 0.95), rgba(124, 93, 153, 0.85));
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    order: -1; /* Placer avant l'image dans le flexbox */
+    order: -1; 
 }
 
 /* Compétences */
@@ -236,7 +231,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
 /* Indicateurs (dots) */
 .dots-container {
     position: absolute; 
-    bottom: 65px; /* Ajusté pour la nouvelle hauteur du caption */
+    bottom: 65px; 
     z-index: 3; 
     left: 50%; 
     transform: translateX(-50%);
@@ -287,21 +282,19 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
    PROJECT 2 - Layout spécifique
    ============================================ */
 
-/* Layout spécifique pour le Projet 2 avec guide à gauche */
 .p2 .project-txt-img {
     display: flex;
-    flex-direction: row; /* Horizontal au lieu de colonne */
+    flex-direction: row; 
     justify-content: space-between;
-    align-items: center; /* Centre verticalement les éléments */
+    align-items: center; 
     gap: 30px;
     width: 100%;
     margin: 0 auto;
-    margin-top: 40px; /* Ajoute de l'espace entre la deuxième ligne et l'image */
+    margin-top: 40px; 
 }
 
-/* Le guide utilisateur à gauche */
 .p2 .all-illu-proj {
-    flex-basis: 35%; /* 35% de largeur */
+    flex-basis: 35%; 
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -321,9 +314,8 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     transform: scale(1.05);
 }
 
-/* Le slider d'images à droite */
 .p2 .project-contenu.project-img {
-    flex-basis: 60%; /* 60% de largeur */
+    flex-basis: 60%; 
     flex-grow: 1;
     min-width: unset;
     background-color: rgb(247, 241, 249);
@@ -332,7 +324,6 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     position: relative;
 }
 
-/* Hauteur du slider pour le Projet 2 */
 .p2 .img-list {
     width: 100%;
     height: 500px;
@@ -345,13 +336,11 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
    ============================================ */
 
 @media (max-width: 992px) {
-    /* Liste des projets en colonne */
     .list-project {
         flex-direction: column;
         padding: 40px 20px;
     }
-    
-    /* Cartes de description en colonne */
+
     .desc-ligne1, .desc-ligne2 {
         flex-direction: column;
         gap: 20px; 
@@ -372,8 +361,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     .project-details {
         padding: 40px 20px;
     }
-    
-    /* Projet 2 : passage en colonne */
+
     .p2 .project-txt-img {
         flex-direction: column;
         gap: 20px;
@@ -385,8 +373,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
         flex-basis: 100%;
         width: 100%;
     }
-    
-    /* Hauteur des sliders */
+
     .img-list {
         height: 400px;
     }
@@ -394,8 +381,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     .p2 .img-list {
         height: 400px;
     }
-    
-    /* Ajuster l'image pour le caption */
+
     .img-wrapper img {
         height: calc(100% - 50px);
     }
@@ -412,7 +398,6 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
 }
 
 @media (max-width: 768px) {
-    /* Hauteur des sliders réduite */
     .img-list {
         height: 300px;
     }
@@ -420,8 +405,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     .p2 .img-list {
         height: 300px;
     }
-    
-    /* Ajuster l'image pour le caption */
+
     .img-wrapper img {
         height: calc(100% - 45px);
     }
@@ -440,8 +424,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
         padding: 10px;
         font-size: 18px;
     }
-    
-    /* Espacement réduit entre cartes */
+
     .desc-ligne1, .desc-ligne2 {
         gap: 15px;
     }

@@ -67,33 +67,20 @@
     top: 0;
     bottom: 0;
     width: 30px; 
-    /* Hauteur (height) est de 100% par défaut */
-    
-    /* On utilise UN SEUL radial-gradient pour le motif */
     background: 
-        /* Création d'un seul anneau centré à 15px/15px */
         radial-gradient(circle at 15px 15px, 
-            #c0c0c0 5px, /* Couleur intérieure */
-            #e8e8e8 5px, /* Bord intérieur de l'anneau */
-            #e8e8e8 7px, /* Bord extérieur de l'anneau */
-            transparent 7px /* Transparent autour de l'anneau */
+            #c0c0c0 5px, 
+            #e8e8e8 5px, 
+            #e8e8e8 7px, 
+            transparent 7px 
         );
-    
-    /* CORRECTION CLÉ 1: Définir la taille du motif. 
-       Largeur 30px, Hauteur 40px (Cela définit la distance entre chaque anneau) */
     background-size: 30px 40px; 
-    
-    /* CORRECTION CLÉ 2: Répéter uniquement sur l'axe Y (vertical) */
     background-repeat: repeat-y;
-    
-    /* Assurez-vous que l'anneau est bien visible même si le contenu est petit */
     min-height: 100%;
-
     border-radius: 1.5rem 0 0 1.5rem;
-    z-index: 1; /* Le mettre en dessous du contenu du bloc si besoin */
+    z-index: 1; 
 }
 
-/* Media Query conservée */
 @media (max-width: 768px) {
     .strenght {
         flex-direction: column; 
@@ -113,7 +100,6 @@
         padding-left: 0;
     }
 
-    /* Optionnel : Masquer ou simplifier les anneaux en mobile si l'espace est limité */
     .strenght::before {
         display: none; 
     }

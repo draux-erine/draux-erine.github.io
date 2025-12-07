@@ -22,17 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         "While I may not have a professional camera, I enjoy taking pictures of my travels " +
         "or landscapes that inspire me. With my friends, we often organize photography " +
-        "trips, where we choose a location to photograph. With this hobby, I develop my " +
-        "creativity but also my keen eye for detail. The act of capturing a dynamic scene " +
-        "requires me to rapidly analyze the light, the form, and the framing to execute " +
+        "trips where we choose a location to photograph. With this hobby, I develop my " +
+        "creativity but also my keen eye for details. The act of capturing a dynamic scene " +
+        "requires me to quickly analyze the light, the form, and the framing to execute " +
         "the shot effectively. This continuous practice in rapid visual analysis and " +
         "decision-making significantly sharpens my focus and my ability to isolate and " +
         "tackle crucial variables.",
 
-        "While I enjoy outdoor activities, I am equally drawn to manual and creative endeavors. " +
+        "While I enjoy being outdoor, I am equally drawn to manual and creative activities. " +
         "My interests include coloring mandalas, practicing macramé, and assembling decorative book nook scenes. " +
         "These hobbies are instrumental in developing several key skills: they significantly enhance my dexterity and fine motor skills, "+
-        "improve my focus on detailed tasks, and continuously foster my creativity."
+        "improve my focus on detailed tasks, and continuously fuel my creativity."
     ];
 
 

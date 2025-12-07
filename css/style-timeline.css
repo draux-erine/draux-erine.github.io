@@ -1,115 +1,6 @@
-/*
-* {
-    box-sizing: border-box;
-}
-
-main {
-    width: 100%;
-    height: auto;
-    background-color: rgb(245, 245, 245);
-    display: flex;
-    flex-direction: column;
-}
-
-#timeline {
-    padding: 50px 0;
-    display: grid;
-    place-items: center;
-    background: radial-gradient(ellipse 150% 100% at 50% 0%,
-            rgb(167, 144, 198) 0%,
-            rgb(190, 174, 211) 30%,
-            rgb(245, 245, 245) 55%);
-
-}
-
-
-#journey-title {
-    font-size: 27px;
-    font-weight: 500;
-    color: rgb(112, 76, 158);
-    color: white;
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-
-#container {
-    width: 70%;
-    height: auto;
-    position: relative;
-}
-
-#container::after {
-    position: absolute;
-    content: ' ';
-    width: 2px;
-    height: 100%;
-    background-image: linear-gradient(to bottom, rgb(112, 76, 158), #d97ae1)
-}
-
-#container ul {
-    list-style: none;
-}
-
-#container ul li {
-    width: 50%;
-    height: auto;
-    padding: 15px 20px;
-    background-color: #fff;
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.384);
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-#container ul li p {
-    color: #444;
-    margin: 7px 0;
-}
-
-#container ul li a{
-    display: inline-block;
-    margin-right: 15px;
-    text-align: justify;
-}
-
-#container ul li a, .timeline-details a {
-    color: purple;
-    text-decoration: underline;
-}
-
-#container ul li .title {
-    font-weight: 500;
-    color: rgb(112, 76, 158);
-}
-
-#container ul li .date {
-    position: absolute;
-    top: -40px;
-    left: 20px;
-    width: 160px;
-    height: 35px;
-    border-radius: 20px;
-    color: #FFF;
-    background-image: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
-    display: grid;
-    place-items: center;
-}
-
-#container ul li:nth-child(odd) {
-    float: left;
-    clear: right;
-    transform: translateX(-30px);
-}
-
-#container ul li:nth-child(even) {
-    float: right;
-    clear: left;
-    transform: translateX(30px);
-}
-*/
-/* ===== TIMELINE SECTION ===== */
-
-
+/* ============================================
+   TIMELINE SECTION
+   ============================================ */
 
 #timeline {
     padding: 50px 0;
@@ -119,21 +10,17 @@ main {
                 rgb(167, 144, 198) 0%,
                 rgb(190, 174, 211) 30%,
                 rgb(245, 245, 245) 55%);
-
 }
-
 
 #journey-title {
     font-size: 27px;
     font-weight: 500;
-    /* Correction: la couleur blanche écrase le violet si vous ne la commentez pas. */
-    /* color: rgb(112, 76, 158); */
     color: white; 
     text-align: center;
     margin-bottom: 80px;
 }
 
-
+/* Container principal */
 #container {
     width: 70%;
     height: auto;
@@ -144,13 +31,12 @@ main {
 #container::after {
     position: absolute;
     content: ' ';
-    /* CORRECTION CLÉ: Centrer la ligne au milieu de la zone 70% */
     left: 50%; 
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
     background-image: linear-gradient(to bottom, rgb(112, 76, 158), #d97ae1);
-    z-index: 1; /* Assure que la ligne est en dessous des éléments */
+    z-index: 1; 
 }
 
 #container ul {
@@ -158,6 +44,7 @@ main {
     padding: 0;
 }
 
+/* Blocs de la timeline */
 #container ul li {
     width: 50%;
     height: auto;
@@ -166,41 +53,31 @@ main {
     box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.384);
     border-radius: 10px;
     margin-bottom: 30px;
-    position: relative; /* Nécessaire pour positionner le trait de connexion */
-    z-index: 2; /* S'assurer que le li est au-dessus de la ligne centrale */
+    position: relative; 
+    z-index: 2; 
 }
 
-/* ---------------------------------------------------- */
-/* AJOUT/MODIFICATION: Création du trait de connexion rectangulaire */
-/* Ce pseudo-élément remplace les points ronds et les décalages complexes */
-
+/* Trait de connexion horizontal */
 #container ul li::before {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    height: 2px; /* Hauteur du trait */
-    width: 30px; /* Longueur du trait */
+    height: 2px; 
+    width: 30px; 
     background: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
     z-index: 3;
 }
-
-/* ---------------------------------------------------- */
 
 #container ul li p {
     color: #444;
     margin: 7px 0;
 }
 
-#container ul li a{
+#container ul li a {
     display: inline-block;
     margin-right: 15px;
     text-align: justify;
-}
-
-#container ul li a, .timeline-details a {
-    color: purple;
-    text-decoration: underline;
 }
 
 #container ul li .title {
@@ -208,56 +85,51 @@ main {
     color: rgb(112, 76, 158);
 }
 
+/* Badge de date */
 #container ul li .date {
     position: absolute;
     top: -40px;
-    /* ... conservé ... */
     left: 20px; 
     width: 160px;
     height: 35px;
     border-radius: 20px;
     color: #FFF;
-    background-image: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
     display: grid;
     place-items: center;
 }
 
-/* Éléments à gauche (Impairs) */
+/* Éléments impairs - À gauche */
 #container ul li:nth-child(odd) {
     float: left;
     clear: right;
-    /* CORRECTION CLÉ: Suppression de la translation et ajout d'une marge */
     transform: translateX(0); 
     margin-left: 0; 
-    margin-right: calc(50% - 2px - 30px); /* 50% (position du centre) - 2px (largeur de la ligne) - 30px (largeur du trait) */
+    margin-right: calc(50% - 2px - 30px); 
 }
 
-/* Trait de connexion pour les impairs (à droite) */
 #container ul li:nth-child(odd)::before {
-    right: -30px; /* Aligné sur le bord droit de l'élément li */
+    right: -30px; 
     left: auto;
 }
 
-
-/* Éléments à droite (Pairs) */
+/* Éléments pairs - À droite */
 #container ul li:nth-child(even) {
     float: right;
     clear: left;
-    /* CORRECTION CLÉ: Suppression de la translation et ajout d'une marge */
     transform: translateX(0);
     margin-right: 0;
-    margin-left: calc(50% - 2px - 30px); /* Même calcul de marge */
+    margin-left: calc(50% - 2px - 30px); 
 }
 
-/* Trait de connexion pour les pairs (à gauche) */
 #container ul li:nth-child(even)::before {
-    left: -30px; /* Aligné sur le bord gauche de l'élément li */
+    left: -30px; 
     right: auto;
-    /* Inversion du dégradé pour la symétrie si souhaité */
     background: linear-gradient(to left, rgb(112, 76, 158), #d97ae1);
 }
 
-/* ===== TIMELINE OVERLAY ===== */
+/* ============================================
+   TIMELINE OVERLAY (Pop-up détails)
+   ============================================ */
 
 .overlay {
     display: none;
@@ -277,6 +149,7 @@ main {
     align-items: center;
 }
 
+/* Contenu du pop-up */
 .overlay-content {
     position: relative;
     background-color: white;
@@ -290,7 +163,19 @@ main {
     animation: slideIn 0.4s ease;
 }
 
-/* Effets décoratifs */
+.overlay-content .timeline-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.overlay-content .timeline-details h2,
+.overlay-content .timeline-details p,
+.overlay-content .timeline-details a {
+    width: 100%;
+}
+
+/* Effets décoratifs du pop-up */
 .overlay-content::before {
     content: '';
     position: absolute;
@@ -303,18 +188,8 @@ main {
     pointer-events: none;
 }
 
-.overlay-content::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, transparent, rgba(217, 122, 225, 0.2));
-    border-radius: 0 0 20px 0;
-    pointer-events: none;
-}
 
+/* Détails de la timeline */
 .timeline-details {
     display: none;
 }
@@ -342,7 +217,6 @@ main {
     display: inline-block;
     margin-top: 15px;
     padding: 12px 25px;
-    color: white;
     text-decoration: none;
     border-radius: 20px;
     transition: all 0.3s ease;
@@ -351,7 +225,7 @@ main {
 
 .timeline-details a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(112, 76, 158, 0.3);
+    box-shadow: rgba(112, 76, 158, 0.3);
 }
 
 /* Bouton de fermeture */
@@ -373,14 +247,13 @@ main {
     color: #d97ae1;
 }
 
-/* Animations */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideIn {
@@ -394,7 +267,9 @@ main {
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 
 /* Tablettes */
 @media screen and (max-width: 1024px) {
@@ -402,8 +277,8 @@ main {
         width: 90%;
     }
 
-    .section-title {
-        font-size: 40px;
+    #journey-title {
+        font-size: 24px;
     }
 
     #container ul li {
@@ -418,8 +293,8 @@ main {
         padding: 60px 15px;
     }
 
-    .section-title {
-        font-size: 36px;
+    #journey-title {
+        font-size: 22px;
         margin-bottom: 40px;
     }
 
@@ -428,47 +303,39 @@ main {
         padding: 20px 0 20px 40px;
     }
 
-    /* Ligne à gauche au lieu du centre */
-    #container::after {
-        left: 20px;
-        transform: none;
-    }
-
     #container ul {
         gap: 40px;
     }
 
     /* Tous les éléments alignés à gauche */
-    #container ul li {
+    #container ul li,
+    #container ul li:nth-child(odd),
+    #container ul li:nth-child(even) {
         width: calc(100% - 60px);
-        align-self: flex-start !important;
-        text-align: left !important;
+        float: none;
+        clear: none;
+        align-self: flex-start;
+        text-align: left;
         margin-left: 40px;
+        margin-right: 0;
     }
 
-    /* Point sur la ligne de gauche */
-    #container ul li::before {
-        left: -50px !important;
-        right: auto !important;
+    /* Trait de connexion depuis la gauche */
+    #container ul li::before,
+    #container ul li:nth-child(odd)::before,
+    #container ul li:nth-child(even)::before {
+        left: -50px;
+        right: auto;
         top: 30px;
-        transform: none !important;
+        transform: none;
+        background: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
     }
 
-    /* Ligne de connexion depuis la gauche */
-    #container ul li::after {
-        left: -40px !important;
-        right: auto !important;
-        top: 39px;
-        transform: none !important;
-        width: 40px;
-    }
-
-    /* Date repositionnée au-dessus sans chevauchement */
+    /* Date repositionnée */
     #container ul li .date {
         position: static;
         display: inline-block;
-        left: auto !important;
-        right: auto !important;
+        margin-bottom: 10px;
     }
 
     #container ul li .title {
@@ -515,24 +382,26 @@ main {
         gap: 30px;
     }
 
-    #container ul li {
+    #container ul li,
+    #container ul li:nth-child(odd),
+    #container ul li:nth-child(even) {
         width: calc(100% - 45px);
         padding: 18px 20px;
         margin-left: 30px;
     }
 
-    #container ul li::before {
-        display: none;
-    }
-
-    #container ul li::after {
-        left: -30px !important;
-        width: 30px;
+    #container ul li::before,
+    #container ul li:nth-child(odd)::before,
+    #container ul li:nth-child(even)::before {
+        left: -40px;
+        width: 40px;
     }
 
     #container ul li .date {
         font-size: 12px;
         padding: 6px 15px;
+        width: 140px;
+        height: 30px;
     }
 
     #container ul li .title {
@@ -565,172 +434,5 @@ main {
     .timeline-details a {
         padding: 10px 20px;
         font-size: 14px;
-    }
-}
-
-/*########################### TIMELINE DETAILS ######################## */
-.overlay {
-    display: none;
-    /* Caché par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    animation: fadeIn 0.3s ease;
-}
-
-.overlay.active {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-}
-
-/* Contenu de la feuille */
-.overlay-content {
-    position: relative;
-    background-color: white;
-    width: 90%;
-    max-width: 800px;
-    max-height: 80vh;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    animation: slideIn 0.4s ease;
-}
-
-.overlay-content .timeline-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.overlay-content .timeline-details h2,
-.overlay-content .timeline-details p,
-.overlay-content .timeline-details a {
-    width: 100%;
-}
-
-.overlay-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, rgba(190, 174, 211, 0.3), transparent);
-    border-radius: 20px 0 100% 0;
-    pointer-events: none;
-}
-
-/* Effet décoratif en coin inférieur droit */
-.overlay-content::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, transparent, rgba(217, 122, 225, 0.2));
-    border-radius: 0 0 20px 0;
-    pointer-events: none;
-}
-
-
-/* Bouton de fermeture */
-.close-overlay {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 40px;
-    color: rgb(112, 76, 158);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.close-overlay:hover {
-    transform: scale(1.2);
-    color: rgb(147, 100, 190);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Masquer les détails non actifs */
-.timeline-details {
-    display: none;
-}
-
-.timeline-details.active {
-    display: block;
-}
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
-@media screen and (max-width: 768px) {
-    .overlay-content {
-        width: 95%;
-        padding: 40px 30px;
-        max-height: 90vh;
-    }
-
-    .timeline-details h2 {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
-
-    .timeline-details p {
-        font-size: 16px;
-    }
-
-    .close-overlay {
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
-        top: 15px;
-        right: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .overlay-content {
-        padding: 30px 20px;
-    }
-
-    .timeline-details p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .timeline-details a {
-        padding: 10px 20px;
     }
 }
