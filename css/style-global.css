@@ -205,11 +205,123 @@ header {
 }
 
 /* FOOTER */
+/* ============================================
+   FOOTER - CRÉDITS ICÔNES
+   ============================================ */
+
 #footer {
-    background-color: rgb(0, 0, 0);
-    display: flex;
+    background: linear-gradient(135deg, rgb(124, 93, 153), rgb(161, 131, 190));
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
 }
 
+/* Container des crédits - Une seule ligne */
+.footer-credits {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+}
+
+/* Titre du footer */
+.footer-credits h3 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 10px;
+    letter-spacing: 0.5px;
+    flex-basis: 100%; /* Force le titre sur sa propre ligne */
+    margin-bottom: 10px;
+}
+
+/* Chaque ligne de crédit - inline */
+.footer-credits .credit-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.footer-credits .credit-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Séparateur entre les crédits */
+.footer-credits .credit-item:not(:last-child)::after {
+    content: "•";
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+/* Liens dans le footer */
+#footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    padding-bottom: 1px;
+}
+
+#footer a:hover {
+    color: rgb(234, 227, 240);
+    border-bottom-color: rgb(234, 227, 240);
+}
+
+/* Copyright ou mention supplémentaire */
+.footer-copyright {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   RESPONSIVE FOOTER
+   ============================================ */
+
+@media (max-width: 992px) {
+    .footer-credits {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .footer-credits .credit-item {
+        white-space: normal;
+    }
+    
+    .footer-credits .credit-item:not(:last-child)::after {
+        content: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #footer {
+        padding: 25px 15px;
+    }
+    
+    .footer-credits .credit-item {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .footer-credits h3 {
+        font-size: 0.95rem;
+    }
+}
 
 .separateur{
     margin: 100px;

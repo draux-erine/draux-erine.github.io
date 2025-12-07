@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const descriptions = [
         "Growing up, I had the chance to spend many summers hiking with my family, especially near the Alps. " +
         "These experiences sparked my passion for nature and hiking, an activity I still enjoy today. " +
-        "What I love most is the sense of discovery: observing wildlife, learning about plants, or coming across" +
-        "hiddenplaces reclaimed by nature. At the same time, hiking is a challenge: every trail brings its own obstacles, and the path isn’t always straightforward. ",
+        "What I love most is the sense of discovery: observing wildlife, learning about plants, or coming across " +
+        "hidden places reclaimed by nature. At the same time, hiking is a challenge: every trail brings its own obstacles, and the path isn’t always straightforward. ",
 
         "While I may not have a professional camera, I enjoy taking pictures of my travels " +
         "or landscapes that inspire me. With my friends, we often organize photography " +

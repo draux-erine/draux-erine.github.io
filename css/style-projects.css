@@ -108,6 +108,11 @@ a {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: justify;
+    overflow-y: auto;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* ============================================
@@ -447,5 +452,43 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
     
     .p2 .project-txt-img {
         margin-top: 20px;
+    }
+}
+
+/* Image spécifique dans "The results"*/
+.desc-card .outcome {
+    display: flex;
+    flex-direction: column; 
+    gap: 50px; 
+}
+
+.desc-card img[src*="Graphics-nutri-score"] {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.desc-card img[src*="Graphics-nutri-score"]:hover {
+    transform: scale(1.02);
+}
+
+.desc-card img[src*="Graphics-nutri-score"].limited-height {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+@media (max-width: 992px) {
+    .desc-card img[src*="Graphics-nutri-score"] {
+        max-height: 350px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 768px) {
+    .desc-card img[src*="Graphics-nutri-score"] {
+        max-height: 300px;
     }
 }
