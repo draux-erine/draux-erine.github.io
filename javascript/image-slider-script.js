@@ -1,125 +1,107 @@
 document.addEventListener('DOMContentLoaded', function () {
+    function initSlider(containerSelector, imageClass) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
 
-    // Access the Images
-    let slideImages = document.querySelectorAll('.p1-img');
-    // Access the next and prev buttons
-    let next = document.querySelector('.img-slide-next');
-    let prev = document.querySelector('.img-slide-prev');
-    // Access the indicators
-    let dots = document.querySelectorAll('.dot');
+        const slideWrappers = container.querySelectorAll('.img-wrapper');
+        const next = container.querySelector('.img-slide-next');
+        const prev = container.querySelector('.img-slide-prev');
+        const dots = container.querySelectorAll('.dot');
 
-    // Si aucun élément n'est trouvé, on arrête l'exécution du script
-    if (slideImages.length === 0 || !next || !prev) {
-        console.warn("Slider components not found. Check your HTML classes.");
-        return;
-    }
-
-    var counter = 0;
-
-    // --- Fonctions de navigation ---
-
-    function slideNext() {
-        // 1. L'image actuelle (sortante)
-        slideImages[counter].style.animation = 'next1 0.5s ease-in forwards';
-        slideImages[counter].classList.remove('img-active'); // IMPORTANT : Retrait de la classe active
-
-        // 2. Incrémentation du compteur (gestion du bouclage)
-        if (counter >= slideImages.length - 1) {
-            counter = 0;
-        } else {
-            counter++;
-        }
-
-        // 3. ÉTAPE CLÉ : Réinitialiser la position de l'image entrante
-        slideImages[counter].style.animation = 'none'; // Annule toute animation persistante
-        slideImages[counter].style.left = '100%'; // Positionne l'image entrante à droite (100%)
-
-        // 4. L'image entrante (glissement)
-        slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
-        slideImages[counter].classList.add('img-active'); // Ajout de la classe active
-
-        indicators();
-    }
-
-    function slidePrev() {
-        // 1. L'image actuelle (sortante)
-        slideImages[counter].style.animation = 'prev1 0.5s ease-in forwards';
-        slideImages[counter].classList.remove('img-active'); // IMPORTANT : Retrait de la classe active
-
-        // 2. Décrémentation du compteur (gestion du bouclage)
-        if (counter === 0) {
-            counter = slideImages.length - 1; // Boucle à la dernière image
-        } else {
-            counter--;
-        }
-
-        // 3. ÉTAPE CLÉ : Réinitialiser la position de l'image entrante
-        slideImages[counter].style.animation = 'none'; // Annule toute animation persistante
-        slideImages[counter].style.left = '-100%'; // Positionne l'image entrante à gauche (-100%)
-
-        // 4. L'image entrante (glissement)
-        slideImages[counter].style.animation = 'prev2 0.5s ease-in forwards';
-        slideImages[counter].classList.add('img-active'); // Ajout de la classe active
-
-        indicators();
-    }
-
-    // --- Gestion des indicateurs (Dots) ---
-
-    function indicators() {
-        // Retire la classe 'active' de tous les points
-        dots.forEach(dot => {
-            dot.className = dot.className.replace(' img-active', '');
-        });
-        // Ajoute la classe 'active' au point correspondant
-        dots[counter].className += ' img-active';
-    }
-
-
-    function switchImage(currentImage) {
-        var imageId = parseInt(currentImage.getAttribute('attr'));
-
-        if (imageId === counter) {
+        if (slideWrappers.length === 0 || !next || !prev) {
+            console.warn(`Slider components not found in ${containerSelector}`);
             return;
         }
 
-        var oldCounter = counter;
+        let counter = 0;
 
-        slideImages[counter].classList.remove('img-active');
-        if (imageId > oldCounter) {
-            slideImages[oldCounter].style.animation = 'next1 0.5s ease-in forwards';
-        } else {
-            slideImages[oldCounter].style.animation = 'prev1 0.5s ease-in forwards';
+        function slideNext() {
+            slideWrappers[counter].style.animation = 'next1 0.5s ease-in forwards';
+            slideWrappers[counter].classList.remove('img-active');
+
+            if (counter >= slideWrappers.length - 1) {
+                counter = 0;
+            } else {
+                counter++;
+            }
+
+            slideWrappers[counter].style.animation = 'none';
+            slideWrappers[counter].style.left = '100%';
+            slideWrappers[counter].style.animation = 'next2 0.5s ease-in forwards';
+            slideWrappers[counter].classList.add('img-active');
+
+            updateIndicators();
         }
-        counter = imageId;
-        slideImages[counter].style.animation = 'none';
-        slideImages[counter].style.left = (imageId > oldCounter) ? '100%' : '-100%';
 
-        if (imageId > oldCounter) {
-            slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
-        } else {
-            slideImages[counter].style.animation = 'prev2 0.5s ease-in forwards';
+        function slidePrev() {
+            slideWrappers[counter].style.animation = 'prev1 0.5s ease-in forwards';
+            slideWrappers[counter].classList.remove('img-active');
+
+            if (counter === 0) {
+                counter = slideWrappers.length - 1;
+            } else {
+                counter--;
+            }
+
+            slideWrappers[counter].style.animation = 'none';
+            slideWrappers[counter].style.left = '-100%';
+            slideWrappers[counter].style.animation = 'prev2 0.5s ease-in forwards';
+            slideWrappers[counter].classList.add('img-active');
+
+            updateIndicators();
         }
 
-        slideImages[counter].classList.add('img-active');
+        function updateIndicators() {
+            dots.forEach(dot => {
+                dot.classList.remove('img-active');
+            });
+            dots[counter].classList.add('img-active');
+        }
 
-        indicators();
-    }
+        function switchImage(imageId) {
+            if (imageId === counter) return;
 
-    // Écouteurs pour les flèches
-    next.addEventListener('click', slideNext);
-    prev.addEventListener('click', slidePrev);
+            const oldCounter = counter;
+            slideWrappers[counter].classList.remove('img-active');
 
-    // Écouteurs pour les points
-    dots.forEach(dot => {
-        dot.addEventListener('click', function () {
-            switchImage(this);
+            if (imageId > oldCounter) {
+                slideWrappers[oldCounter].style.animation = 'next1 0.5s ease-in forwards';
+            } else {
+                slideWrappers[oldCounter].style.animation = 'prev1 0.5s ease-in forwards';
+            }
+
+            counter = imageId;
+            slideWrappers[counter].style.animation = 'none';
+            slideWrappers[counter].style.left = (imageId > oldCounter) ? '100%' : '-100%';
+
+            if (imageId > oldCounter) {
+                slideWrappers[counter].style.animation = 'next2 0.5s ease-in forwards';
+            } else {
+                slideWrappers[counter].style.animation = 'prev2 0.5s ease-in forwards';
+            }
+
+            slideWrappers[counter].classList.add('img-active');
+            updateIndicators();
+        }
+
+        next.addEventListener('click', slideNext);
+        prev.addEventListener('click', slidePrev);
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const imageId = parseInt(this.getAttribute('attr'));
+                switchImage(imageId);
+            });
         });
-    });
 
-    if (slideImages.length > 0) {
-        slideImages[0].classList.add('img-active');
-        slideImages[0].style.left = '0%';
-        indicators(); // Met à jour l'affichage des points
+        if (slideWrappers.length > 0) {
+            slideWrappers[0].classList.add('img-active');
+            slideWrappers[0].style.left = '0%';
+            updateIndicators();
+        }
     }
+
+    initSlider('#details-p1 .project-contenu.project-img', '.p1-img');
+
+    initSlider('#details-p2 .project-contenu.project-img', '.p2-img');
 });

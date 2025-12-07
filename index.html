@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="css/style-global.css">
-    <link rel="stylesheet" href="css/style-home.css">
-    <link rel="stylesheet" href="css/style-timeline.css">
-    <link rel="stylesheet" href="css/style-aboutMe.css">
-    <link rel="stylesheet" href="css/style-learning-log.css">
-    <link rel="stylesheet" href="css/style-projects.css">
-    <link rel="stylesheet" href="css/style-career.css">
-    <link rel="stylesheet" href="css/style-resumes.css">
-    <link rel="stylesheet" href="css/style-CSR.css">
-    <link rel="stylesheet" href="css/style-mobility.css">
-    <link rel="stylesheet" href="css/style-contact.css">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style-global.css">
+    <link rel="stylesheet" href="../css/style-home.css">
+    <link rel="stylesheet" href="../css/style-timeline.css">
+    <link rel="stylesheet" href="../css/style-aboutMe.css">
+    <link rel="stylesheet" href="../css/style-learning-log.css">
+    <link rel="stylesheet" href="../css/style-projects.css">
+    <link rel="stylesheet" href="../css/style-career.css">
+    <link rel="stylesheet" href="../css/style-resumes.css">
+    <link rel="stylesheet" href="../css/style-CSR.css">
+    <link rel="stylesheet" href="../css/style-mobility.css">
+    <link rel="stylesheet" href="../css/style-contact.css">
     <script src="../javascript/hamburger-menu-script.js"></script>
     <script src="../javascript/cards-caroussel-script.js"></script>
     <script src="../javascript/projects-script.js"></script>
@@ -196,6 +197,7 @@
                                 </div>
                                 <div class="card" data-index="1">
                                     <h3>Photography</h3>
+                                    <img src="../images/illus-photography.png" class="insterest-img img-rando">
                                 </div>
                                 <div class="card" data-index="2">
                                     <h3>Manual Activities</h3>
@@ -283,22 +285,18 @@
                 <div class="list-project">
                     <div class="project-item" data-target="details-p1">
                         <h2>Projet 1 </h2>
-                        <p> A team project focused on data preprocessing (cleaning, missing value handling) and
-                            exploratory
-                            data analysis of the OpenFoodFacts database.
+                        <p> A team project focused on data preprocessing (cleaning, missing value handling)
+                            and exploratory data analysis of the OpenFoodFacts database.
                             We developed reports on factors influencing the Nutri-Score and applied Machine Learning
-                            models
-                            (via KNIME) to predict the score of new products.
+                            models (via KNIME) to predict the score of new products.
                         </p>
                     </div>
                     <div class="project-item" data-target="details-p2">
                         <h2>Projet 2</h2>
-                        <p> Lorem ipsum dolor sit amet <br>
-                            Quisque faucibus ex sapien vitae <br>
-                            In id cursus mi pretium tellus <br>
-                            Lorem ipsum dolor sit amet <br>
-                            Quisque faucibus ex sapien vitae <br>
-                            In id cursus mi pretium tellus
+                        <p> This project involved creating a real estate management application for a client, from
+                            analysing their needs to delivering a functional final product.
+                            The project allowed us to apply solid software engineering
+                            practices while building a reliable Java application tailored to the client’s expectations.
                         </p>
                     </div>
                 </div>
@@ -314,7 +312,7 @@
                     <div class="project-text-desc project-contenu">
                         <div class="desc-ligne1">
                             <div class="desc-card">
-                                <h3> Problem </h3>
+                                <h3> Project Context </h3>
                                 <p>
                                     The purpose of this project was to clean, and analyse data of an open database:
                                     OpenFoodFact by making reports to give precise insights on nutri-score. Once done,
@@ -326,7 +324,7 @@
                                 </p>
                             </div>
                             <div class="desc-card">
-                                <h3> Outcome </h3>
+                                <h3> What I Delivered </h3>
                                 <p>
                                     lorem ipsum
                                 </p>
@@ -353,7 +351,7 @@
                                 </p>
                             </div>
                             <div class="desc-card">
-                                <h3> Technique </h3>
+                                <h3> Tools And Technical Approach </h3>
                                 <p>
                                     The project required a robust technical stack to achieve its goals. I utilized
                                     Python for scripting and data cleaning, and the visual workflow platform Knime for
@@ -372,19 +370,24 @@
 
                     <div class="project-contenu project-img">
                         <div class="img-list">
-                            <img src="../images/Dashboard-labels-nutriscore.png" class="img-active p1-img"
-                                alt="projet 1 dashboard ">
-                            <!--<h4> Dashboard de l'impact des labels sur le nutriscore</h4>-->
-                            <img src="../images/Exemple-wf-knime-clusturing.png" alt="projet 1 workflow" class="p1-img">
-                            <!--<h4> Dashboard de l'impact des labels sur le nutriscore</h4>-->
+                            <div class="img-wrapper img-active">
+                                <img src="../images/Dashboard-labels-nutriscore.png" class="p1-img"
+                                    alt="projet 1 dashboard">
+                                <div class="img-caption">Dashboard - Impact of labels on Nutri-Score</div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="../images/Exemple-wf-knime-clusturing.png" class="p1-img"
+                                    alt="projet 1 workflow">
+                                <div class="img-caption">KNIME Workflow - Clustering Analysis</div>
+                            </div>
                         </div>
                         <div class="img-slide-buttons">
                             <span class="img-slide-next">&#10095;</span>
                             <span class="img-slide-prev">&#10094;</span>
                         </div>
                         <div class="dots-container">
-                            <div class="dot img-active" attr='0' onclick="switchImage(this)"></div>
-                            <div class="dot" attr='1' onclick="switchImage(this)"></div>
+                            <div class="dot img-active" attr='0'></div>
+                            <div class="dot" attr='1'></div>
                         </div>
                     </div>
                 </div>
@@ -398,60 +401,102 @@
             </div>
             <div class="project-details p2" id="details-p2">
                 <div>
-                    <img src="" alt="projet 2">
-                </div>
-                <div>
                     <h2> Project 2 : Conception and implementation of an application </h2>
                 </div>
                 <div class="project-text-desc">
+                    <div class="desc-ligne1">
+                        <div class="desc-card">
+                            <h3> Project Context </h3>
+                            <p>
+                                The core challenge of this project was to conceive and develop a real estate management
+                                application based on client expectations and specifications. The initial difficulty lay
+                                in
+                                the analysis of the subject and needs, which required many exchanges with the client to
+                                fully grasp the complex business rules of the real estate sector. This led to the
+                                fundamental necessity of defining a clear Conceptual Data Model (CDM), which served as
+                                the
+                                essential blueprint for the application's implementation.
+                            </p>
+                        </div>
+                        <div class="desc-card">
+                            <h3> What I Delivered </h3>
+                            <p>
+                                The final outcome was a fully functional application developed in Java which passed all
+                                of
+                                the tests scenarios given. Beyond the successful delivery of the product itself, the
+                                project
+                                resulted in a significant reinforcement of my knowledge of Object-Oriented Programming
+                                (OOP)
+                                and my ability to set up robust software architectures. A crucial element of the
+                                deliverable
+                                included a comprehensive user guide to support the application's deployment.
 
-                    <div class="desc-card">
-                        <h3> problem </h3>
-                        <p>
-                            The core challenge of this project was to conceive and develop a real estate management
-                            application based on client expectations and specifications. The initial difficulty lay in
-                            the analysis of the subject and needs, which required many exchanges with the client to
-                            fully grasp the complex business rules of the real estate sector. This led to the
-                            fundamental necessity of defining a clear Conceptual Data Model (CDM), which served as the
-                            essential blueprint for the application's implementation.
-                        </p>
+                            </p>
+                        </div>
                     </div>
-                    <div class="desc-card">
-                        <h3> Outcome </h3>
-                        <p>
-                            The final outcome was a fully functional application developed in Java which passed all of
-                            the tests scenarios given. Beyond the successful delivery of the product itself, the project
-                            resulted in a significant reinforcement of my knowledge of Object-Oriented Programming (OOP)
-                            and my ability to set up robust software architectures. A crucial element of the deliverable
-                            included a comprehensive user guide to support the application's deployment.
+                    <div class="desc-ligne2">
+                        <div class="desc-card">
+                            <h3> My Role </h3>
+                            <p>
+                                After doing so, each one of us tried to use different IA processes on Knime to see if we
+                                could
+                                predict the nutri-score of newly added food, allowing me to discover supervised and
+                                unsupervised
+                                learning paradigms.
+                                Leveraging Supervised Learning on KNIME, I implemented and evaluated robust models,
+                                especially
+                                the Multi-Layer Perceptron (MLP)
+                                for classification (requiring normalized data) and the versatile Gradient Boosted Trees
+                                Learner
+                            </p>
+                        </div>
+                        <div class="desc-card">
+                            <h3> Tools And Technical Approach </h3>
+                            <p>
+                                For the application's development we developed in Java (within the Eclipse IDE). We
+                                employed
+                                several best practices for code structuring to ensure high maintainability and clarity.
+                                Most
+                                notably, we implemented the Data Access Object (DAO) design pattern. This technical
+                                approach
+                                was key to achieving a clear and clean separation between the business logic layer and
+                                the
+                                underlying data management layer, allowing for a highly modular and organized codebase.
+                                We
+                                also chose to follow the Model-View-Controller architecture in order to
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-txt-img">
+                    <!-- Guide utilisateur à gauche -->
+                    <div class="all-illu-proj">
+                        <a href="../docs/Guide_utilisation.pdf" target="_blank">
+                            <img class="img-cv" src="../images/Guide_utilisation.jpg"
+                                alt="Guide d'utilisation de l'application">
+                        </a>
+                    </div>
 
-                        </p>
-                    </div>
-                    <div class="desc-card">
-                        <h3> My Role </h3>
-                        <p>
-                            After doing so, each one of us tried to use different IA processes on Knime to see if we
-                            could
-                            predict the nutri-score of newly added food, allowing me to discover supervised and
-                            unsupervised
-                            learning paradigms.
-                            Leveraging Supervised Learning on KNIME, I implemented and evaluated robust models,
-                            especially
-                            the Multi-Layer Perceptron (MLP)
-                            for classification (requiring normalized data) and the versatile Gradient Boosted Trees
-                            Learner
-                        </p>
-                    </div>
-                    <div class="desc-card">
-                        <h3> Technique </h3>
-                        <p>
-                            For the application's development we developed in Java (within the Eclipse IDE). We employed
-                            several best practices for code structuring to ensure high maintainability and clarity. Most
-                            notably, we implemented the Data Access Object (DAO) design pattern. This technical approach
-                            was key to achieving a clear and clean separation between the business logic layer and the
-                            underlying data management layer, allowing for a highly modular and organized codebase. We
-                            also chose to follow the Model-View-Controller architecture in order to
-                        </p>
+                    <!-- Slider d'images à droite -->
+                    <div class="project-contenu project-img">
+                        <div class="img-list">
+                            <div class="img-wrapper img-active">
+                                <img src="../images/MCD-proj2.png" class="p2-img" alt="projet 2 MCD">
+                                <div class="img-caption">Conceptual Data Model (CDM) - Real Estate Application</div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="../images/appli-proj2.png" class="p2-img" alt="projet 2 architecture">
+                                <div class="img-caption">Application Architecture - DAO Pattern & MVC</div>
+                            </div>
+                        </div>
+                        <div class="img-slide-buttons">
+                            <span class="img-slide-next">&#10095;</span>
+                            <span class="img-slide-prev">&#10094;</span>
+                        </div>
+                        <div class="dots-container">
+                            <div class="dot img-active" attr='0'></div>
+                            <div class="dot" attr='1'></div>
+                        </div>
                     </div>
                 </div>
                 <div class="skills project-skills" role="list" aria-label="Compétences techniques">
@@ -609,7 +654,7 @@
                 </div>
             </div>
         </div>
-	<div class="video-container">
+        <div class="video-container">
             <iframe src="https://www.youtube.com/embed/GWEf87n0wrc" frameborder="0" allowfullscreen>
             </iframe>
         </div>
@@ -627,7 +672,7 @@
             I had the chance to exchange with him on many occasions
         </div>
         <div class="SecondPerson">
-            
+
         </div>
     </section>
 
@@ -773,6 +818,8 @@
         pojok d - Flaticon</a>
     <div> Icons made by <a href="https://www.flaticon.com/authors/gravisio" title="gravisio"> gravisio </a> from <a
             href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+    <a href="https://www.flaticon.com/fr/icones-gratuites/python" title="python icônes">Python icônes créées par Freepik
+        - Flaticon</a>
 </footer>
 </body>
 
