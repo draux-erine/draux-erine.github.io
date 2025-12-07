@@ -1,0 +1,189 @@
+/* ============================================
+   SECTION NETWORKING / ROLE MODELS
+   ============================================ */
+
+#networking {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(161, 131, 190, 0.2);
+    padding: 80px 0;
+}
+
+#networking .section-title {
+    background-color: rgb(190, 174, 211, 0.8);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#networking .section-title h1 {
+    margin: 20px;
+}
+
+/* Container des personnes */
+.networking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+/* Carte de personne */
+.person-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(124, 93, 153, 0.3);
+}
+
+/* Alternance gauche/droite pour les cartes */
+.FirstPerson {
+    flex-direction: row; /* Image à gauche, texte à droite */
+}
+
+.SecondPerson {
+    flex-direction: row-reverse; /* Image à droite, texte à gauche */
+}
+
+/* Image de profil */
+.person-card .profile-image {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(124, 93, 153), rgb(161, 131, 190));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(124, 93, 153, 0.4);
+    padding: 20px;
+}
+
+.person-card .profile-image img {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) invert(1); /* Rend l'icône blanche */
+}
+
+/* Contenu texte */
+.person-card .person-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.person-card h2 {
+    color: rgb(124, 93, 153);
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.person-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, rgb(124, 93, 153), transparent);
+}
+
+.person-card p {
+    text-align: justify;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+    #networking {
+        padding: 60px 0;
+    }
+    
+    .networking-container {
+        gap: 40px;
+    }
+    
+    .person-card {
+        padding: 30px;
+        gap: 30px;
+    }
+    
+    .person-card .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .person-card .profile-image img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    #networking {
+        padding: 40px 0;
+    }
+    
+    .networking-container {
+        gap: 30px;
+        width: 95%;
+    }
+    
+    /* Toutes les cartes en colonne sur mobile */
+    .person-card,
+    .FirstPerson,
+    .SecondPerson {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .person-card .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .person-card .profile-image img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .person-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .person-card h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .person-card p {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+}
