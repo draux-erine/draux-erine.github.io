@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --fs-hero: clamp(3rem, 3.5rem + 2vw, 5rem);    /* Va de 48px à 80px (Titre Home)*/
-    --fs-h1: clamp(2rem, 1rem + 3vw, 3rem);      /* Va de 32px à 48px (Titres de Section)*/
-    --fs-h2: clamp(1.25rem, 1rem + 1.5vw, 1.75rem); /* Va de 20px à 28px (Titre page About Me)*/
-    --fs-h3: clamp(1.125rem, 1rem + 1vw, 1.5rem); /* Va de 18px à 24px (Titres H2/H3 dans les blocs)  */
-    --fs-h4: clamp(1rem, 0.9rem + 0.8vw, 1.25rem); /* Va de 16px à 20px (Titres d'éléments)*/
-    --fs-body: clamp(0.875rem, 0.75rem + 0.5vw, 1rem) /*(Corps de texte par défaut)*/;
-    --fs-small: 0.875rem; /* 14px (Petits textes, boutons) */
+    /* Tailles de texte fluides (min, valeur qui grandit avec l'écran, max) */
+    --fs-hero: clamp(2.25rem, 1rem + 3.6vw, 5rem);   /* Titre Home */
+    --fs-h1: clamp(2rem, 1rem + 3vw, 3rem);          /* Titres de section */
+    --fs-h2: clamp(1.25rem, 1rem + 1.5vw, 1.75rem);
+    --fs-h3: clamp(1.125rem, 1rem + 1vw, 1.5rem);
+    --fs-h4: clamp(1rem, 0.9rem + 0.8vw, 1.25rem);
+    --fs-body: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+    --fs-small: 0.875rem;
+
+    /* Espacements fluides réutilisables partout */
+    --space-section: clamp(2rem, 5vw, 5rem);
+    --space-gap: clamp(1rem, 3vw, 2rem);
+
+    /* Hauteur du header fixe : sert au menu mobile et aux ancres */
+    --header-h: 4.5rem;
 }
 
 * {
@@ -15,6 +23,17 @@
     padding: 0;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Les ancres (#balise-...) ne passent plus sous le header fixe */
+    scroll-padding-top: var(--header-h);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 main {
@@ -25,25 +44,16 @@ main {
     flex-direction: column;
 }
 
-
 .section-title,
 .section-title h1 {
-    /*font-family: Cambria, serif;*/
     font-weight: bold;
     text-align: left;
     color: rgb(40, 16, 64);
 }
-h1 {
-    font-size: var(--fs-h1);
-}
 
-h2 {
-    font-size: var(--fs-h2);
-}
-
-h3 {
-    font-size: var(--fs-h3);
-}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
 
 p {
     font-size: var(--fs-body);
@@ -54,15 +64,34 @@ span {
     font-size: var(--fs-small);
 }
 
-/* BARRE DE NAVIGATION */
+/* Espaceurs entre sections (les deux orthographes existent dans le HTML) */
+.separateur,
+.seperateur {
+    display: block;
+    height: var(--space-section);
+}
+
+/* Animation partagée (utilisée par les overlays et les détails de projets) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================================
+   BARRE DE NAVIGATION
+   ============================================ */
+
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 20px 8%;
+    height: var(--header-h);
+    padding-inline: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #ccc;
-    position: fixed;
     z-index: 10000;
     background-color: white;
 }
@@ -74,23 +103,25 @@ header {
 }
 
 #navbar ul li {
-    padding: 10px 25px;
+    padding: 0.25rem clamp(0.1rem, 0.6vw, 0.75rem);
 }
 
+/* Le padding est fixe : au survol, seule la couleur change, donc rien ne bouge */
 #navbar ul li a {
+    display: inline-block;
+    padding: 0.6rem clamp(0.6rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 0.55rem + 0.45vw, 1rem);
     text-decoration: none;
     color: #999;
-    transition: 0.5s;
     text-align: center;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#navbar ul li a:hover {
+#navbar ul li a:hover,
+#navbar ul li a:focus-visible {
     background-color: rgb(176, 135, 215);
-    padding: 15px;
     color: white;
-    font-weight: bolder;
-    border-radius: 20px;
-
 }
 
 /* Bouton hamburger (caché par défaut) */
@@ -99,6 +130,7 @@ header {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    padding: 0.5rem;
 }
 
 .menu-toggle span {
@@ -108,22 +140,8 @@ header {
     transition: 0.3s;
 }
 
-/* RESPONSIVE */
-@media screen and (max-width: 1024px) {
-    #navbar ul li {
-        padding: 10px 10px;
-    }
-    
-    #navbar ul li a {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    header {
-        padding: 15px 5%;
-    }
-
+/* Un seul changement de disposition : liens -> hamburger */
+@media screen and (max-width: 900px) {
     .menu-toggle {
         display: flex;
     }
@@ -131,14 +149,16 @@ header {
     #navbar ul {
         position: fixed;
         left: -100%;
-        top: 40px;
+        top: var(--header-h);
         flex-direction: column;
         background-color: white;
         width: 100%;
+        max-height: calc(100vh - var(--header-h));
+        overflow-y: auto;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
-        padding: 20px 0;
+        padding: 1rem 0;
     }
 
     #navbar ul.active {
@@ -146,72 +166,25 @@ header {
     }
 
     #navbar ul li {
-        padding: 15px 0;
+        padding: 0.4rem 0;
     }
 
     #navbar ul li a {
         font-size: 1rem;
-    }
-
-    #navbar ul li a:hover {
-        padding: 15px 30px;
+        padding: 0.6rem 2rem;
     }
 }
 
-@media screen and (max-width: 480px) {
-    header {
-        padding: 15px 3%;
-    }
-    
-    #navbar ul li a {
-        font-size: 0.9rem;
-    }
-}
-
-/* MENU A GAUCHE */
-#side-navbar {
-    position: fixed;
-    left: 0;
-    margin-right: 50%;
-    width: 200px;
-    height: 100%;
-    background-color: #f4f4f4;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#side-navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#side-navbar ul li {
-    margin: 20px 0;
-}
-
-#side-navbar ul li a {
-    text-decoration: none;
-    color: #999;
-    padding: 10px;
-    display: block;
-    transition: 0.3s;
-}
-
-#side-navbar ul li a:hover {
-    color: rgb(176, 135, 215);
-    font-size: larger;
-    border-radius: 5px;
-}
-
-/* FOOTER */
+/* ============================================
+   FOOTER
+   ============================================ */
 
 #footer {
     background: linear-gradient(135deg, rgb(124, 93, 153), rgb(161, 131, 190));
     color: white;
     padding: 30px 20px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: var(--space-section);
 }
 
 .footer-credits {
@@ -232,7 +205,7 @@ header {
     font-weight: 500;
     margin-right: 10px;
     letter-spacing: 0.5px;
-    flex-basis: 100%; 
+    flex-basis: 100%;
     margin-bottom: 10px;
 }
 
@@ -280,69 +253,18 @@ header {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* ============================================
-   RESPONSIVE FOOTER
-   ============================================ */
-
+/* Footer : on passe en colonne quand les crédits ne tiennent plus sur une ligne */
 @media (max-width: 992px) {
     .footer-credits {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .footer-credits .credit-item {
         white-space: normal;
     }
-    
+
     .footer-credits .credit-item:not(:last-child)::after {
         content: none;
     }
 }
-
-@media (max-width: 768px) {
-    #footer {
-        padding: 25px 15px;
-    }
-    
-    .footer-credits .credit-item {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-    
-    .footer-credits h3 {
-        font-size: 0.95rem;
-    }
-}
-
-.separateur{
-    margin: 100px;
-}
-
-
-
-/*
-.separateur-transition {
-    border: none;
-    width: 100%;
-    margin: 0;
-}*/
-
-/*Animations
-@keyframes appear {
-    from {
-        opacity: o;
-        scale: 0.8;
-    }
-
-    to {
-        opacity: 1;
-        scale: 1;
-    }
-}
-
-section {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-    */

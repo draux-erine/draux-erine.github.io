@@ -1,68 +1,44 @@
+/* Les deux CV passent côte à côte ou l'un sous l'autre tout seuls */
 .resumes {
-    padding: 60px 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: var(--space-section);
 }
-
 
 .docs-container {
     display: flex;
     flex-direction: column;
-    padding: 40px;
-    border-radius: 50px;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border-radius: clamp(20px, 4vw, 50px);
     background-color: white;
     box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
-    transition: transform 0.3s ease-in-out;
 }
 
 .docs-container h2 {
     text-align: center;
     font-size: var(--fs-h2);
     color: rgb(112, 76, 158);
-    margin-bottom: 30px;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .docs-container .docs {
     flex: 1;
     display: flex;
     justify-content: center;
-    justify-content: space-around;
     align-items: center;
 }
 
+/* Largeur bornée : plus de calc(35vw - 10px), qui grossissait sans limite sur grand écran */
 .docs-container .docs img {
-    /*width: 400px;*/
-    width: calc(35vw - 10px);
+    width: 100%;
+    max-width: 450px;
     height: auto;
-    transition: 0.5s;
+    transition: transform 0.5s;
     border: 1px solid #999;
     box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
 }
 
 .docs-container .docs img:hover {
     transform: scale(1.02);
-}
-
-@media (max-width: 768px) {
-    #resumes-section {
-        padding: 40px 20px;
-    }
-
-    .resumes-list {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .docs-container {
-        flex: none;
-        width: 100%;
-        margin: 0;
-        padding: 30px 20px;
-    }
-
-    .docs-container h2 {
-        margin-bottom: 20px;
-    }
 }

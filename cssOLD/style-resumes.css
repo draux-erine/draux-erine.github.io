@@ -1,0 +1,68 @@
+.resumes {
+    padding: 60px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-evenly;
+}
+
+
+.docs-container {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+.docs-container h2 {
+    text-align: center;
+    font-size: var(--fs-h2);
+    color: rgb(112, 76, 158);
+    margin-bottom: 30px;
+}
+
+.docs-container .docs {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.docs-container .docs img {
+    /*width: 400px;*/
+    width: calc(35vw - 10px);
+    height: auto;
+    transition: 0.5s;
+    border: 1px solid #999;
+    box-shadow: 0 2px 12px rgba(60, 60, 120, 0.08);
+}
+
+.docs-container .docs img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    #resumes-section {
+        padding: 40px 20px;
+    }
+
+    .resumes-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .docs-container {
+        flex: none;
+        width: 100%;
+        margin: 0;
+        padding: 30px 20px;
+    }
+
+    .docs-container h2 {
+        margin-bottom: 20px;
+    }
+}

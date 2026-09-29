@@ -3,16 +3,20 @@
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    height: 100vh; 
-    min-height: 600px; 
-    padding-top: 0; 
+    /* min-height au lieu de height : le contenu peut grandir sans déborder */
+    min-height: 100vh;
+    min-height: 100svh;
 }
 
 #home-section #left-block {
+    position: relative;
     flex: 0 0 50%;
 }
 
+/* L'image remplit le bloc sans en influencer la hauteur */
 #home-section #left-block img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -20,54 +24,54 @@
 }
 
 #home-section #right-block {
-    padding: 5%;
+    position: relative;
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    position: relative; 
+    justify-content: center;
+    align-items: center;
+    /* haut : laisse la place au header fixe / bas : laisse la place à la flèche */
+    padding: calc(var(--header-h) + 1rem) clamp(1.5rem, 5vw, 4rem) 6rem;
 }
 
 #presentation {
-    width: 100%;
-    max-width: 600px; 
-    margin-bottom: 30px;
+    width: min(100%, 44rem);
+    margin-bottom: var(--space-gap);
 }
 
 #right-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: var(--space-gap);
 }
 
 #home-section h1 {
-    padding-bottom: 0;
-    padding-top: 0;
+    padding: 0;
     font-weight: bold;
-    font-size: 80px;
+    font-size: var(--fs-hero);
     color: rgb(103, 67, 138);
     text-align: left;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 /* Photo de profil */
 #picture {
-    order: 0;
     flex-shrink: 0;
 }
 
 #picture #img-myself {
-    width: 150px;
-    height: 150px;
+    width: clamp(100px, 10vw, 170px);
+    height: clamp(100px, 10vw, 170px);
     border-radius: 50%;
     object-fit: cover;
 }
 
 #right-text {
-    margin-bottom: 30px;
+    margin-bottom: var(--space-gap);
 }
 
 #right-text p {
@@ -77,18 +81,18 @@
 }
 
 #btn-resumes {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 40px;
+    width: min(100%, 44rem);
 }
 
 #btn-resumes a {
+    display: inline-block;
     text-decoration: none;
     color: white;
-    padding: 15px 30px;
+    font-size: var(--fs-body);
+    padding: 0.9rem clamp(1.5rem, 3vw, 2rem);
     border-radius: 20px;
     background-color: rgb(147, 100, 190);
-    display: inline-block;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(147, 100, 190, 0.3);
 }
@@ -96,15 +100,15 @@
 #btn-resumes a:hover {
     color: rgb(147, 100, 190);
     background-color: white;
-    border: rgb(147, 100, 190) solid 2px;
+    border-color: rgb(147, 100, 190);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(147, 100, 190, 0.4);
 }
 
-/* Flèche de scroll - positionnée en bas du bloc droit */
+/* Flèche de scroll - en bas du bloc droit (la place est réservée par le padding) */
 .fleche-scroll {
     position: absolute;
-    bottom: 30px;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -125,10 +129,6 @@
     animation-delay: -0.2s;
 }
 
-.fleche-scroll span:nth-child(3) {
-    animation-delay: -0.4s;
-}
-
 @keyframes scroll {
     0% {
         opacity: 0;
@@ -143,159 +143,27 @@
     }
 }
 
-/* ===== RESPONSIVE - TABLETTES ===== */
-@media screen and (max-width: 1024px) {
-    #home-section h1 {
-        font-size: 60px;
-    }
-    
-    #picture #img-myself {
-        width: 130px;
-        height: 130px;
-    }
-    
-    #home-section {
-        min-height: 500px;
-    }
-}
-
-/* ===== RESPONSIVE - MOBILE/TABLETTE ===== */
-@media screen and (max-width: 768px) {
-    #home-section {
-        flex-direction: column;
-        height: 100vh;
-        min-height: 600px;
-    }
-    
+/* ===== Seul vrai changement de disposition : on masque l'image décorative ===== */
+@media screen and (max-width: 800px) {
     #home-section #left-block {
         display: none;
-    }
-    
-    #home-section #right-block {
-        flex: 1;
-        width: 100%;
-        padding: 5%;
-        justify-content: center;
-    }
-
-    #presentation {
-        margin-bottom: 25px;
     }
 
     #right-head {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 25px;
     }
-    
+
     #picture {
         order: -1;
-        margin-bottom: 20px;
-    }
-    
-    #picture #img-myself {
-        width: 140px;
-        height: 140px;
     }
 
-    #home-section h1 {
-        text-align: center;
-        font-size: 50px;
-    }
-
-    #right-text {
-        text-align: center;
-        margin-bottom: 25px;
-    }
-    
+    #home-section h1,
     #right-text p {
         text-align: center;
     }
 
     #btn-resumes {
         text-align: center;
-        margin-bottom: 30px;
-    }
-    
-    .fleche-scroll {
-        bottom: 20px;
-    }
-}
-
-/* ===== RESPONSIVE - PETITS MOBILES ===== */
-@media screen and (max-width: 480px) {
-    #home-section {
-        min-height: 550px;
-    }
-    
-    #picture #img-myself {
-        width: 120px;
-        height: 120px;
-    }
-    
-    #home-section h1 {
-        font-size: 40px;
-    }
-    
-    #btn-resumes a {
-        padding: 12px 25px;
-        font-size: 14px;
-    }
-    
-    .fleche-scroll {
-        bottom: 15px;
-    }
-    
-    .fleche-scroll span {
-        width: 25px;
-        height: 25px;
-        border-bottom: 4px solid rgb(147, 100, 190);
-        border-right: 4px solid rgb(147, 100, 190);
-    }
-}
-
-/* ===== RESPONSIVE - TRÈS GRANDS ÉCRANS ===== */
-@media screen and (min-width: 1400px) {
-    #home-section h1 {
-        font-size: 90px;
-    }
-    
-    #picture #img-myself {
-        width: 170px;
-        height: 170px;
-    }
-    
-    #presentation {
-        max-width: 700px;
-    }
-    
-    #btn-resumes {
-        max-width: 700px;
-    }
-}
-
-/* ===== HAUTEURS D'ÉCRAN COURTES ===== */
-@media screen and (max-height: 700px) {
-    #home-section {
-        min-height: auto;
-        height: auto;
-        padding: 80px 0 40px 0;
-    }
-    
-    #home-section h1 {
-        font-size: 60px;
-    }
-    
-    #picture #img-myself {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .fleche-scroll {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin-top: 20px;
     }
 }

@@ -1,0 +1,301 @@
+#home-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: 100vh; 
+    min-height: 600px; 
+    padding-top: 0; 
+}
+
+#home-section #left-block {
+    flex: 0 0 50%;
+}
+
+#home-section #left-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+#home-section #right-block {
+    padding: 5%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+}
+
+#presentation {
+    width: 100%;
+    max-width: 600px; 
+    margin-bottom: 30px;
+}
+
+#right-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#home-section h1 {
+    padding-bottom: 0;
+    padding-top: 0;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgb(103, 67, 138);
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* Photo de profil */
+#picture {
+    order: 0;
+    flex-shrink: 0;
+}
+
+#picture #img-myself {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#right-text {
+    margin-bottom: 30px;
+}
+
+#right-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#btn-resumes {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+#btn-resumes a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: rgb(147, 100, 190);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(147, 100, 190, 0.3);
+}
+
+#btn-resumes a:hover {
+    color: rgb(147, 100, 190);
+    background-color: white;
+    border: rgb(147, 100, 190) solid 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147, 100, 190, 0.4);
+}
+
+/* Flèche de scroll - positionnée en bas du bloc droit */
+.fleche-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.fleche-scroll span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid rgb(147, 100, 190);
+    border-right: 5px solid rgb(147, 100, 190);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 2s infinite;
+}
+
+.fleche-scroll span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.fleche-scroll span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+/* ===== RESPONSIVE - TABLETTES ===== */
+@media screen and (max-width: 1024px) {
+    #home-section h1 {
+        font-size: 60px;
+    }
+    
+    #picture #img-myself {
+        width: 130px;
+        height: 130px;
+    }
+    
+    #home-section {
+        min-height: 500px;
+    }
+}
+
+/* ===== RESPONSIVE - MOBILE/TABLETTE ===== */
+@media screen and (max-width: 768px) {
+    #home-section {
+        flex-direction: column;
+        height: 100vh;
+        min-height: 600px;
+    }
+    
+    #home-section #left-block {
+        display: none;
+    }
+    
+    #home-section #right-block {
+        flex: 1;
+        width: 100%;
+        padding: 5%;
+        justify-content: center;
+    }
+
+    #presentation {
+        margin-bottom: 25px;
+    }
+
+    #right-head {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    #picture {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    
+    #picture #img-myself {
+        width: 140px;
+        height: 140px;
+    }
+
+    #home-section h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    #right-text {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    #right-text p {
+        text-align: center;
+    }
+
+    #btn-resumes {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .fleche-scroll {
+        bottom: 20px;
+    }
+}
+
+/* ===== RESPONSIVE - PETITS MOBILES ===== */
+@media screen and (max-width: 480px) {
+    #home-section {
+        min-height: 550px;
+    }
+    
+    #picture #img-myself {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #home-section h1 {
+        font-size: 40px;
+    }
+    
+    #btn-resumes a {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .fleche-scroll {
+        bottom: 15px;
+    }
+    
+    .fleche-scroll span {
+        width: 25px;
+        height: 25px;
+        border-bottom: 4px solid rgb(147, 100, 190);
+        border-right: 4px solid rgb(147, 100, 190);
+    }
+}
+
+/* ===== RESPONSIVE - TRÈS GRANDS ÉCRANS ===== */
+@media screen and (min-width: 1400px) {
+    #home-section h1 {
+        font-size: 90px;
+    }
+    
+    #picture #img-myself {
+        width: 170px;
+        height: 170px;
+    }
+    
+    #presentation {
+        max-width: 700px;
+    }
+    
+    #btn-resumes {
+        max-width: 700px;
+    }
+}
+
+/* ===== HAUTEURS D'ÉCRAN COURTES ===== */
+@media screen and (max-height: 700px) {
+    #home-section {
+        min-height: auto;
+        height: auto;
+        padding: 80px 0 40px 0;
+    }
+    
+    #home-section h1 {
+        font-size: 60px;
+    }
+    
+    #picture #img-myself {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fleche-scroll {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+    }
+}
