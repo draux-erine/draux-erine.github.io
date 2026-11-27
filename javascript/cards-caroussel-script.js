@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity = 1;
                 zIndex = 3;
             } else if (relativeIndex === 1) {
-                transform = 'translateX(50%) translateZ(-150px) scale(0.8)';
+                transform = 'translateX(40%) translateZ(-150px) scale(0.8)';
                 opacity = 0.7;
                 zIndex = 2;
             } else if (relativeIndex === -1) {
-                transform = 'translateX(-50%) translateZ(-150px) scale(0.8)';
+                transform = 'translateX(-40%) translateZ(-150px) scale(0.8)';
                 opacity = 0.7;
                 zIndex = 2;
             } else {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (descriptionText) {
-            descriptionText.innerHTML = descriptions[currentCardIndex] || '';
+            descriptionText.textContent = descriptions[currentCardIndex] || '';
         }
     }
 
@@ -89,14 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (prevBtn) prevBtn.addEventListener('click', prevCard);
     if (nextBtn) nextBtn.addEventListener('click', nextCard);
-    carousel.addEventListener('wheel', (event) => {
-        event.preventDefault();
+    // Swipe sur mobile (remplace l'ancien "wheel" qui bloquait le défilement de la page)
+    let touchStartX = null;
+    carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { dx < 0 ? nextCard() : prevCard(); }
+        touchStartX = null;
+    });
 
-        if (event.deltaY > 0) {
-            nextCard();
-        } else {
-            prevCard();
-        }
-    }, { passive: false });
     updateCarousel();
 });

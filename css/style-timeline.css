@@ -1,146 +1,227 @@
 /* ============================================
-   TIMELINE SECTION
+   TIMELINE SECTION ("Who am I ?")
+   Unique source de vérité pour la frise :
+   ne plus redéfinir #container dans style-aboutMe.css
    ============================================ */
 
 #timeline {
-    padding: 50px 0;
-    display: grid;
-    place-items: center;
+    --tl-gap: 40px;          /* distance carte <-> ligne centrale (= longueur du trait) */
+    --tl-line: 2px;          /* épaisseur de la ligne */
+    --tl-dot: 14px;          /* diamètre du point sur la ligne */
+    --tl-color-a: rgb(112, 76, 158);
+    --tl-color-b: #d97ae1;
+
+    padding: 50px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: radial-gradient(ellipse 150% 100% at 50% 0%,
-                rgb(167, 144, 198) 0%,
-                rgb(190, 174, 211) 30%,
-                rgb(245, 245, 245) 55%);
+            rgb(167, 144, 198) 0%,
+            rgb(190, 174, 211) 30%,
+            rgb(245, 245, 245) 55%);
+}
+
+#timeline .section-title {
+    text-align: center;
 }
 
 #journey-title {
-    font-size: 27px;
-    font-weight: 500;
-    color: white; 
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    color: white;
     text-align: center;
-    margin-bottom: 80px;
+    padding: 30px 0 10px;
+    margin-bottom: 40px;
 }
 
-/* Container principal */
+/* Conteneur principal */
 #container {
-    width: 70%;
-    height: auto;
+    width: min(1000px, 100%);
     position: relative;
+    margin: 0 auto;
 }
 
-/* Ligne centrale verticale */
+/* Ligne verticale centrale */
 #container::after {
+    content: '';
     position: absolute;
-    content: ' ';
-    left: 50%; 
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: var(--tl-line);
     transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background-image: linear-gradient(to bottom, rgb(112, 76, 158), #d97ae1);
-    z-index: 1; 
+    background-image: linear-gradient(to bottom, var(--tl-color-a), var(--tl-color-b));
+    z-index: 1;
 }
 
 #container ul {
     list-style: none;
-    padding: 0;
+    padding: 50px 0 10px;       /* place pour le badge de date du 1er élément */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;                  /* place pour les badges de date */
 }
 
-/* Blocs de la timeline */
+/* Cartes */
 #container ul li {
-    width: 50%;
-    height: auto;
-    padding: 15px 20px;
+    position: relative;
+    width: calc(50% - var(--tl-gap));
+    padding: 18px 22px;
     background-color: #fff;
-    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.384);
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin-bottom: 30px;
-    position: relative; 
-    z-index: 2; 
+    z-index: 2;
 }
 
-/* Trait de connexion horizontal */
+#container ul li:nth-child(odd)  { align-self: flex-start; }
+#container ul li:nth-child(even) { align-self: flex-end; }
+
+/* Trait horizontal : sa longueur = exactement l'espace carte <-> ligne */
 #container ul li::before {
     content: '';
     position: absolute;
     top: 50%;
+    width: var(--tl-gap);
+    height: 2px;
     transform: translateY(-50%);
-    height: 2px; 
-    width: 30px; 
-    background: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
-    z-index: 3;
+    background: linear-gradient(to right, var(--tl-color-a), var(--tl-color-b));
+}
+
+/* Point sur la ligne centrale */
+#container ul li::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: var(--tl-dot);
+    height: var(--tl-dot);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 3px solid var(--tl-color-a);
+    box-sizing: border-box;
+}
+
+#container ul li:nth-child(odd)::before {
+    left: 100%;
+}
+
+#container ul li:nth-child(odd)::after {
+    left: calc(100% + var(--tl-gap) - var(--tl-dot) / 2);
+}
+
+#container ul li:nth-child(even)::before {
+    right: 100%;
+    background: linear-gradient(to left, var(--tl-color-a), var(--tl-color-b));
+}
+
+#container ul li:nth-child(even)::after {
+    right: calc(100% + var(--tl-gap) - var(--tl-dot) / 2);
+}
+
+#container ul li .title {
+    font-weight: 500;
+    color: var(--tl-color-a);
 }
 
 #container ul li p {
     color: #444;
     margin: 7px 0;
+    text-align: left;
 }
 
 #container ul li a {
     display: inline-block;
-    margin-right: 15px;
-    text-align: justify;
+    margin: 4px 15px 0 0;
+    color: rgb(28, 47, 153);
+    text-decoration: underline;
 }
 
-#container ul li .title {
-    font-weight: 500;
-    color: rgb(112, 76, 158);
-}
-
-/* Badge de date */
+/* Badge de date (au-dessus de la carte) */
 #container ul li .date {
     position: absolute;
-    top: -40px;
-    left: 20px; 
-    width: 160px;
-    height: 35px;
+    top: -42px;
+    left: 20px;
+    padding: 6px 22px;
     border-radius: 20px;
-    color: #FFF;
-    display: grid;
-    place-items: center;
+    color: #fff;
+    white-space: nowrap;
+    background-image: linear-gradient(to right, var(--tl-color-a), var(--tl-color-b));
 }
 
-/* Éléments impairs - À gauche */
-#container ul li:nth-child(odd) {
-    float: left;
-    clear: right;
-    transform: translateX(0); 
-    margin-left: 0; 
-    margin-right: calc(50% - 2px - 30px); 
+/* ---------- Tablettes / mobiles : une seule colonne, ligne à gauche ---------- */
+@media screen and (max-width: 768px) {
+    #timeline {
+        --tl-gap: 28px;
+        padding: 40px 15px 20px;
+    }
+
+    #journey-title {
+        margin-bottom: 20px;
+    }
+
+    #container::after {
+        left: 10px;
+    }
+
+    #container ul li,
+    #container ul li:nth-child(odd),
+    #container ul li:nth-child(even) {
+        align-self: stretch;
+        width: auto;
+        margin-left: calc(10px + var(--tl-gap));
+    }
+
+    #container ul li::before,
+    #container ul li:nth-child(odd)::before,
+    #container ul li:nth-child(even)::before {
+        left: auto;
+        right: 100%;
+        top: 36px;
+        background: linear-gradient(to left, var(--tl-color-a), var(--tl-color-b));
+    }
+
+    #container ul li::after,
+    #container ul li:nth-child(odd)::after,
+    #container ul li:nth-child(even)::after {
+        left: auto;
+        right: calc(100% + var(--tl-gap) - var(--tl-dot) / 2);
+        top: 36px;
+    }
 }
 
-#container ul li:nth-child(odd)::before {
-    right: -30px; 
-    left: auto;
-}
+@media screen and (max-width: 480px) {
+    #container ul li,
+    #container ul li:nth-child(odd),
+    #container ul li:nth-child(even) {
+        padding: 16px 18px;
+    }
 
-/* Éléments pairs - À droite */
-#container ul li:nth-child(even) {
-    float: right;
-    clear: left;
-    transform: translateX(0);
-    margin-right: 0;
-    margin-left: calc(50% - 2px - 30px); 
-}
+    #container ul li .date {
+        font-size: 12px;
+        padding: 5px 16px;
+        top: -36px;
+        left: 14px;
+    }
 
-#container ul li:nth-child(even)::before {
-    left: -30px; 
-    right: auto;
-    background: linear-gradient(to left, rgb(112, 76, 158), #d97ae1);
+    #container ul {
+        gap: 60px;
+        padding-top: 44px;
+    }
 }
 
 /* ============================================
-   TIMELINE OVERLAY (Pop-up détails)
+   TIMELINE OVERLAY (pop-up "Learn more")
    ============================================ */
 
 .overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1000;
+    z-index: 2000;               /* au-dessus du header */
     animation: fadeIn 0.3s ease;
+    padding: 20px;
 }
 
 .overlay.active {
@@ -149,11 +230,10 @@
     align-items: center;
 }
 
-/* Contenu du pop-up */
 .overlay-content {
     position: relative;
     background-color: white;
-    width: 90%;
+    width: 100%;
     max-width: 900px;
     max-height: 85vh;
     padding: 50px;
@@ -163,19 +243,6 @@
     animation: slideIn 0.4s ease;
 }
 
-.overlay-content .timeline-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.overlay-content .timeline-details h2,
-.overlay-content .timeline-details p,
-.overlay-content .timeline-details a {
-    width: 100%;
-}
-
-/* Effets décoratifs du pop-up */
 .overlay-content::before {
     content: '';
     position: absolute;
@@ -188,36 +255,33 @@
     pointer-events: none;
 }
 
-
-/* Détails de la timeline */
 .timeline-details {
     display: none;
 }
 
 .timeline-details.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .timeline-details h2 {
-    font-size: 36px;
+    font-size: var(--fs-h1);
     font-weight: bold;
     color: rgb(103, 67, 138);
-    margin-bottom: 25px;
 }
 
 .timeline-details p {
-    font-size: 16px;
     line-height: 1.8;
     color: #444;
-    margin-bottom: 20px;
     text-align: justify;
 }
 
 .timeline-details a {
-    display: inline-block;
-    margin-top: 15px;
+    align-self: flex-start;
     padding: 12px 25px;
-    text-decoration: none;
+    color: rgb(28, 47, 153);
+    text-decoration: underline;
     border-radius: 20px;
     transition: all 0.3s ease;
     font-weight: 500;
@@ -225,17 +289,16 @@
 
 .timeline-details a:hover {
     transform: translateY(-2px);
-    box-shadow: rgba(112, 76, 158, 0.3);
 }
 
-/* Bouton de fermeture */
 .close-overlay {
     position: absolute;
-    top: 20px;
-    right: 25px;
+    top: 15px;
+    right: 20px;
     background: none;
     border: none;
     font-size: 40px;
+    line-height: 1;
     color: rgb(112, 76, 158);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -247,192 +310,29 @@
     color: #d97ae1;
 }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Tablettes */
-@media screen and (max-width: 1024px) {
-    #container {
-        width: 90%;
-    }
-
-    #journey-title {
-        font-size: 24px;
-    }
-
-    #container ul li {
-        width: calc(50% - 35px);
-        padding: 20px 25px;
-    }
-}
-
-/* Mobile et petites tablettes */
 @media screen and (max-width: 768px) {
-    #timeline {
-        padding: 60px 15px;
+    .overlay {
+        padding: 10px;
     }
 
-    #journey-title {
-        font-size: 22px;
-        margin-bottom: 40px;
-    }
-
-    #container {
-        width: 100%;
-        padding: 20px 0 20px 40px;
-    }
-
-    #container ul {
-        gap: 40px;
-    }
-
-    /* Tous les éléments alignés à gauche */
-    #container ul li,
-    #container ul li:nth-child(odd),
-    #container ul li:nth-child(even) {
-        width: calc(100% - 60px);
-        float: none;
-        clear: none;
-        align-self: flex-start;
-        text-align: left;
-        margin-left: 40px;
-        margin-right: 0;
-    }
-
-    /* Trait de connexion depuis la gauche */
-    #container ul li::before,
-    #container ul li:nth-child(odd)::before,
-    #container ul li:nth-child(even)::before {
-        left: -50px;
-        right: auto;
-        top: 30px;
-        transform: none;
-        background: linear-gradient(to right, rgb(112, 76, 158), #d97ae1);
-    }
-
-    /* Date repositionnée */
-    #container ul li .date {
-        position: static;
-        display: inline-block;
-        margin-bottom: 10px;
-    }
-
-    #container ul li .title {
-        font-size: 20px;
-    }
-
-    #container ul li p {
-        font-size: 14px;
-    }
-
-    /* Overlay responsive */
     .overlay-content {
-        width: 95%;
-        padding: 40px 30px;
+        padding: 50px 25px 30px;
         max-height: 90vh;
-    }
-
-    .timeline-details h2 {
-        font-size: 28px;
-    }
-
-    .timeline-details p {
-        font-size: 15px;
     }
 
     .close-overlay {
         font-size: 32px;
-        top: 15px;
+        top: 12px;
         right: 15px;
-    }
-}
-
-/* Très petits écrans */
-@media screen and (max-width: 480px) {
-    #timeline {
-        padding: 40px 10px;
-    }
-
-    #container {
-        padding: 15px 0 15px 30px;
-    }
-
-    #container ul {
-        gap: 30px;
-    }
-
-    #container ul li,
-    #container ul li:nth-child(odd),
-    #container ul li:nth-child(even) {
-        width: calc(100% - 45px);
-        padding: 18px 20px;
-        margin-left: 30px;
-    }
-
-    #container ul li::before,
-    #container ul li:nth-child(odd)::before,
-    #container ul li:nth-child(even)::before {
-        left: -40px;
-        width: 40px;
-    }
-
-    #container ul li .date {
-        font-size: 12px;
-        padding: 6px 15px;
-        width: 140px;
-        height: 30px;
-    }
-
-    #container ul li .title {
-        font-size: 18px;
-    }
-
-    #container ul li p {
-        font-size: 13px;
-    }
-
-    #container ul li a {
-        font-size: 13px;
-        margin: 5px 8px 3px 0;
-    }
-
-    /* Overlay très petits écrans */
-    .overlay-content {
-        padding: 30px 20px;
-    }
-
-    .timeline-details h2 {
-        font-size: 24px;
-    }
-
-    .timeline-details p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .timeline-details a {
-        padding: 10px 20px;
-        font-size: 14px;
     }
 }

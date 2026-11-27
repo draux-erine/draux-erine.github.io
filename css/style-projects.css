@@ -76,6 +76,7 @@ a {
 }
 
 .project-txt-img {
+    max-width: 1400px;
     display: flex;
     flex-direction: column; 
     justify-content: space-between;
@@ -83,6 +84,10 @@ a {
     gap: 30px;
     width: 100%;
     margin: 0 auto; 
+}
+
+.project-details > .project-text-desc {
+    max-width: 1260px;
 }
 
 .project-text-desc {
@@ -283,6 +288,7 @@ span.img-slide-next:hover, span.img-slide-prev:hover {
    ============================================ */
 
 .p2 .project-txt-img {
+    max-width: 1400px;
     display: flex;
     flex-direction: row; 
     justify-content: space-between;

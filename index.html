@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -23,13 +23,13 @@
     <script src="javascript/cards-caroussel-script.js"></script>
     <script src="javascript/projects-script.js"></script>
     <script src="javascript/image-slider-script.js"></script>
-    <script src="javascript/timeline-script.js"></script>
     <script src="javascript/timeline-overlay-script.js"></script>
     <script src="javascript/career-script.js"></script>
     <script src="javascript/agrandir-img-script.js"></script>
+    <script src="javascript/flip-cards-script.js"></script>
 </head>
 
-
+<body>
 <header id="navbar">
     <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
@@ -154,7 +154,7 @@
 
         <section id="interests-line">
             <div class="img_lavender lav-gauche">
-                <img src="images/lavender.png">
+                <img loading="lazy" src="images/lavender.png" alt="" aria-hidden="true">
             </div>
             <div id="domaines-interets-section">
                 <h1 class="section-title"> What about my interests ?</h1>
@@ -189,15 +189,15 @@
                             <div class="card-carousel">
                                 <div class="card" data-index="0">
                                     <h3>Hiking</h3>
-                                    <img src="images/rando1.jpg" class="insterest-img img-rando">
+                                    <img loading="lazy" src="images/rando1.jpg" class="insterest-img img-rando">
                                 </div>
                                 <div class="card" data-index="1">
                                     <h3>Photography</h3>
-                                    <img src="images/illus-photography.png" class="insterest-img img-photo">
+                                    <img loading="lazy" src="images/illus-photography.png" class="insterest-img img-photo">
                                 </div>
                                 <div class="card" data-index="2">
                                     <h3>Manual Activities</h3>
-                                    <img src="images/manual-act.png" class="insterest-img img-rando">
+                                    <img loading="lazy" src="images/manual-act.png" class="insterest-img img-rando">
                                 </div>
                             </div>
 
@@ -213,7 +213,7 @@
                 </div>
             </div>
             <div class="img_lavender lav-droite">
-                <img src="images/lavender.png">
+                <img loading="lazy" src="images/lavender.png" alt="" aria-hidden="true">
             </div>
         </section>
     </section>
@@ -223,7 +223,7 @@
         <div class="learning-log-content">
             <div class="strenght str1">
                 <div class="strenghts-left">
-                    <img src="images/perseverance.png">
+                    <img loading="lazy" src="images/perseverance.png">
                     <h2> Perseverance </h2>
                 </div>
                 <p>One of my key strengths is perseverance. Indeed, I always find ways to reach my goal no matter the
@@ -242,7 +242,7 @@
             </div>
             <div class="strenght str2">
                 <div class="strenghts-left">
-                    <img src="images/collaboration.png">
+                    <img loading="lazy" src="images/collaboration.png">
                     <h2> Teamwork </h2>
                 </div>
                 <p>Another one of my strengths is teamwork and collaboration. This strength was particularly
@@ -322,7 +322,7 @@
                                         Our analysis revealed several key insights about the factors influencing
                                         Nutri-Score ratings :
                                     </p>
-                                    <img src="images/Graphics-nutri-score.png" class="limited-height">
+                                    <img loading="lazy" src="images/Graphics-nutri-score.png" class="limited-height">
                                     <p>
                                         This infographic shows that products with many additives usually have poor
                                         Nutri-Scores (mostly D or E), while products without additives tend to score
@@ -385,12 +385,12 @@
                     <div class="project-contenu project-img">
                         <div class="img-list">
                             <div class="img-wrapper img-active">
-                                <img src="images/Dashboard-labels-nutriscore.png" class="p1-img"
+                                <img loading="lazy" src="images/Dashboard-labels-nutriscore.png" class="p1-img"
                                     alt="projet 1 dashboard">
                                 <div class="img-caption">Dashboard - Impact of labels on Nutri-Score</div>
                             </div>
                             <div class="img-wrapper">
-                                <img src="images/exemple-wf-knime.png" class="p1-img" alt="projet 1 workflow">
+                                <img loading="lazy" src="images/exemple-wf-knime.png" class="p1-img" alt="projet 1 workflow">
                                 <div class="img-caption">Knime Workflow - Multi-Layer Perceptron</div>
                             </div>
                         </div>
@@ -484,7 +484,7 @@
                     <!-- Guide utilisateur à gauche -->
                     <div class="all-illu-proj">
                         <a href="docs/Guide_utilisation.pdf" target="_blank">
-                            <img class="img-cv" src="images/Guide_utilisation.jpg"
+                            <img loading="lazy" class="img-cv" src="images/Guide_utilisation.jpg"
                                 alt="Guide d'utilisation de l'application">
                         </a>
                     </div>
@@ -493,11 +493,11 @@
                     <div class="project-contenu project-img">
                         <div class="img-list">
                             <div class="img-wrapper img-active">
-                                <img src="images/MCD-proj2.png" class="p2-img" alt="projet 2 MCD">
+                                <img loading="lazy" src="images/MCD-proj2.png" class="p2-img" alt="projet 2 MCD">
                                 <div class="img-caption">Conceptual Data Model (CDM) - Real Estate Application</div>
                             </div>
                             <div class="img-wrapper">
-                                <img src="images/appli-proj2.png" class="p2-img" alt="projet 2 architecture">
+                                <img loading="lazy" src="images/appli-proj2.png" class="p2-img" alt="projet 2 architecture">
                                 <div class="img-caption">Application Architecture - DAO Pattern & MVC</div>
                             </div>
                         </div>
@@ -650,7 +650,7 @@
 
                 <div class="docs">
                     <a href="docs/CV-Draux-Erine-Fr.pdf" target="_blank">
-                        <img class="img-cv" src="images/CV-fr.jpg" alt="CV en français">
+                        <img loading="lazy" class="img-cv" src="images/CV-fr.jpg" alt="CV en français">
                     </a>
                 </div>
             </div>
@@ -661,13 +661,13 @@
 
                 <div class="docs">
                     <a href="docs/CV-Draux-Erine-En.pdf" target="_blank">
-                        <img class="img-cv" src="images/CV-en.jpg" alt="CV en anglais">
+                        <img loading="lazy" class="img-cv" src="images/CV-en.jpg" alt="CV en anglais">
                     </a>
                 </div>
             </div>
         </div>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/GWEf87n0wrc" frameborder="0" allowfullscreen>
+            <iframe src="https://www.youtube.com/embed/GWEf87n0wrc" title="YouTube video" loading="lazy" allowfullscreen>
             </iframe>
         </div>
     </section>
@@ -675,7 +675,7 @@
     <span class="seperateur"> </span>
 
     <div id="balise-roleModels"> </div>
-    <section>
+    <section id="networking">
         <div class="section-title networking-title">
             <h1> Networking </h1>
         </div>
@@ -721,6 +721,7 @@
                     </p>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- CSR -->
@@ -750,8 +751,8 @@
                         <div class="fresque flip-card-front">
                             <h3> Digital Fresk & Climate Fresk </h3>
                             <div class="fresks-img">
-                                <img src="images/fresque-climat.jpg" class="flip-card-illustration fresk-climat">
-                                <img src="images/fresque-num.png" class="flip-card-illustration">
+                                <img loading="lazy" src="images/fresque-climat.jpg" class="flip-card-illustration fresk-climat">
+                                <img loading="lazy" src="images/fresque-num.png" class="flip-card-illustration">
                             </div>
                         </div>
                         <div class="fresque-numerique flip-card-back">
@@ -771,7 +772,7 @@
                     <div class="flip-card-content">
                         <div class="fresque-numerique flip-card-front">
                             <h3> Futurs Proches Festival </h3>
-                            <img src="images/logo-futurs-proches.png" class="flip-card-illustration">
+                            <img loading="lazy" src="images/logo-futurs-proches.png" class="flip-card-illustration">
                         </div>
                         <div class="futurs-proches flip-card-back">
                             <h3> Futurs Proches Festival </h3>
@@ -805,7 +806,7 @@
     <section id="mobility">
         <h1 class="section-title"> Mobility </h1>
         <div id="map">
-            <img src="images/carte-mobilite.jpg">
+            <img loading="lazy" src="images/carte-mobilite.jpg" alt="Map of the mobility destinations: Canada and Germany">
         </div>
         <div id="mobilite-description">
             <div>
@@ -849,8 +850,8 @@
                     </p>
                 </div>
                 <div class="mobility-mails">
-                    <img src="images/Mail-HR.png" onclick="openModal('images/Mail-HR.png')">
-                    <img src="images/Mail-HR-Rep.png" onclick="openModal('images/Mail-HR-Rep.png')">
+                    <img loading="lazy" src="images/Mail-HR.png" onclick="openModal('images/Mail-HR.png')">
+                    <img loading="lazy" src="images/Mail-HR-Rep.png" onclick="openModal('images/Mail-HR-Rep.png')">
                 </div>
                 <div id="imageModal" class="modal" onclick="closeModal()">
                     <span class="close">&times;</span>
@@ -858,6 +859,7 @@
                     <div id="caption"> Mails sent about mobility </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Contact -->
@@ -877,7 +879,7 @@
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
                 </a>
-                <a href="#" class="contact-btn">
+                <a href="mailto:d31.erine@gmail.com" class="contact-btn">
                     <i class="fas fa-envelope"></i>
                     d31.erine@gmail.com
                 </a>
