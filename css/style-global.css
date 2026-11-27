@@ -8,6 +8,20 @@
     --fs-h4: clamp(1rem, 0.9rem + 0.8vw, 1.25rem); /* Va de 16px à 20px (Titres d'éléments)*/
     --fs-body: clamp(0.875rem, 0.75rem + 0.5vw, 1rem) /*(Corps de texte par défaut)*/;
     --fs-small: 0.875rem; /* 14px (Petits textes, boutons) */
+    --header-h: 86px;     /* hauteur du header fixe (sert aux ancres et à l'accueil) */
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h); /* les ancres ne passent plus sous le header */
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 * {
@@ -63,7 +77,10 @@ header {
     align-items: center;
     border-bottom: 2px solid #ccc;
     position: fixed;
-    z-index: 10000;
+    top: 0;
+    left: 0;
+    height: var(--header-h);
+    z-index: 1000;
     background-color: white;
 }
 
@@ -74,23 +91,23 @@ header {
 }
 
 #navbar ul li {
-    padding: 10px 25px;
+    padding: 0 10px;
 }
 
 #navbar ul li a {
+    display: inline-block;
+    padding: 10px 15px;           /* padding fixe : le survol ne fait plus bouger le menu */
+    border-radius: 20px;
     text-decoration: none;
     color: #999;
-    transition: 0.5s;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s;
     text-align: center;
 }
 
 #navbar ul li a:hover {
     background-color: rgb(176, 135, 215);
-    padding: 15px;
     color: white;
-    font-weight: bolder;
-    border-radius: 20px;
-
 }
 
 /* Bouton hamburger (caché par défaut) */
@@ -111,17 +128,23 @@ header {
 /* RESPONSIVE */
 @media screen and (max-width: 1024px) {
     #navbar ul li {
-        padding: 10px 10px;
+        padding: 0 2px;
     }
-    
+
     #navbar ul li a {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        padding: 8px 10px;
     }
 }
 
 @media screen and (max-width: 768px) {
+    :root {
+        --header-h: 60px;
+    }
+
     header {
-        padding: 15px 5%;
+        padding: 0 5%;
+        justify-content: flex-end;
     }
 
     .menu-toggle {
@@ -131,78 +154,32 @@ header {
     #navbar ul {
         position: fixed;
         left: -100%;
-        top: 40px;
+        top: var(--header-h);
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s, visibility 0.3s;
+        visibility: hidden;          /* l'ombre du menu caché ne déborde plus sur la page */
         padding: 20px 0;
     }
 
     #navbar ul.active {
         left: 0;
+        visibility: visible;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
     }
 
     #navbar ul li {
-        padding: 15px 0;
+        padding: 8px 0;
     }
 
     #navbar ul li a {
         font-size: 1rem;
-    }
-
-    #navbar ul li a:hover {
-        padding: 15px 30px;
+        padding: 10px 30px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    header {
-        padding: 15px 3%;
-    }
-    
-    #navbar ul li a {
-        font-size: 0.9rem;
-    }
-}
-
-/* MENU A GAUCHE */
-#side-navbar {
-    position: fixed;
-    left: 0;
-    margin-right: 50%;
-    width: 200px;
-    height: 100%;
-    background-color: #f4f4f4;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#side-navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#side-navbar ul li {
-    margin: 20px 0;
-}
-
-#side-navbar ul li a {
-    text-decoration: none;
-    color: #999;
-    padding: 10px;
-    display: block;
-    transition: 0.3s;
-}
-
-#side-navbar ul li a:hover {
-    color: rgb(176, 135, 215);
-    font-size: larger;
-    border-radius: 5px;
-}
 
 /* FOOTER */
 
@@ -314,8 +291,9 @@ header {
     }
 }
 
-.separateur{
-    margin: 100px;
+.seperateur {
+    display: block;
+    height: 60px;
 }
 
 
@@ -346,3 +324,9 @@ section {
     animation-range: entry 0% cover 40%;
 }
     */
+/* Sur petit écran, le texte justifié crée de gros trous entre les mots */
+@media (max-width: 480px) {
+    p {
+        text-align: left !important;
+    }
+}

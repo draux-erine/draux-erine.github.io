@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,19 +17,30 @@
     <link rel="stylesheet" href="css/style-resumes.css">
     <link rel="stylesheet" href="css/style-networking.css">
     <link rel="stylesheet" href="css/style-CSR.css">
+    <link rel="stylesheet" href="css/style-cep.css">
     <link rel="stylesheet" href="css/style-mobility.css">
     <link rel="stylesheet" href="css/style-contact.css">
     <script src="javascript/hamburger-menu-script.js"></script>
     <script src="javascript/cards-caroussel-script.js"></script>
     <script src="javascript/projects-script.js"></script>
     <script src="javascript/image-slider-script.js"></script>
-    <script src="javascript/timeline-script.js"></script>
     <script src="javascript/timeline-overlay-script.js"></script>
     <script src="javascript/career-script.js"></script>
     <script src="javascript/agrandir-img-script.js"></script>
+    <script src="javascript/flip-cards-script.js"></script>
+    <script src="javascript/cep-slider-script.js"></script>
+    <script>
+        // Si une image est introuvable, essaie les autres noms listés dans data-fallbacks
+        function imgFallback(img) {
+            const list = (img.dataset.fallbacks || '').split(',').filter(Boolean);
+            if (list.length === 0) { img.onerror = null; return; }
+            img.dataset.fallbacks = list.slice(1).join(',');
+            img.src = list[0];
+        }
+    </script>
 </head>
 
-
+<body>
 <header id="navbar">
     <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
@@ -41,8 +52,8 @@
         <li><a href="#balise-about-me">About Me</a></li>
         <li><a href="#balise-projects">Projects</a></li>
         <li><a href="#balise-career">Career</a></li>
+        <li><a href="#balise-CEP">CEP</a></li>
         <li><a href="#balise-CSR">Civic Engagement</a></li>
-        <li><a href="#balise-mobility">Mobility</a></li>
         <li><a href="#balise-contact">Contact</a></li>
     </ul>
 </header>
@@ -154,7 +165,7 @@
 
         <section id="interests-line">
             <div class="img_lavender lav-gauche">
-                <img src="images/lavender.png">
+                <img loading="lazy" src="images/lavender.png" alt="" aria-hidden="true">
             </div>
             <div id="domaines-interets-section">
                 <h1 class="section-title"> What about my interests ?</h1>
@@ -189,15 +200,15 @@
                             <div class="card-carousel">
                                 <div class="card" data-index="0">
                                     <h3>Hiking</h3>
-                                    <img src="images/rando1.jpg" class="insterest-img img-rando">
+                                    <img loading="lazy" src="images/rando1.jpg" class="insterest-img img-rando">
                                 </div>
                                 <div class="card" data-index="1">
                                     <h3>Photography</h3>
-                                    <img src="images/illus-photography.png" class="insterest-img img-photo">
+                                    <img loading="lazy" src="images/illus-photography.png" class="insterest-img img-photo">
                                 </div>
                                 <div class="card" data-index="2">
                                     <h3>Manual Activities</h3>
-                                    <img src="images/manual-act.png" class="insterest-img img-rando">
+                                    <img loading="lazy" src="images/manual-act.png" class="insterest-img img-rando">
                                 </div>
                             </div>
 
@@ -213,7 +224,7 @@
                 </div>
             </div>
             <div class="img_lavender lav-droite">
-                <img src="images/lavender.png">
+                <img loading="lazy" src="images/lavender.png" alt="" aria-hidden="true">
             </div>
         </section>
     </section>
@@ -223,7 +234,7 @@
         <div class="learning-log-content">
             <div class="strenght str1">
                 <div class="strenghts-left">
-                    <img src="images/perseverance.png">
+                    <img loading="lazy" src="images/perseverance.png">
                     <h2> Perseverance </h2>
                 </div>
                 <p>One of my key strengths is perseverance. Indeed, I always find ways to reach my goal no matter the
@@ -242,7 +253,7 @@
             </div>
             <div class="strenght str2">
                 <div class="strenghts-left">
-                    <img src="images/collaboration.png">
+                    <img loading="lazy" src="images/collaboration.png">
                     <h2> Teamwork </h2>
                 </div>
                 <p>Another one of my strengths is teamwork and collaboration. This strength was particularly
@@ -322,7 +333,7 @@
                                         Our analysis revealed several key insights about the factors influencing
                                         Nutri-Score ratings :
                                     </p>
-                                    <img src="images/Graphics-nutri-score.png" class="limited-height">
+                                    <img loading="lazy" src="images/Graphics-nutri-score.png" class="limited-height">
                                     <p>
                                         This infographic shows that products with many additives usually have poor
                                         Nutri-Scores (mostly D or E), while products without additives tend to score
@@ -385,12 +396,12 @@
                     <div class="project-contenu project-img">
                         <div class="img-list">
                             <div class="img-wrapper img-active">
-                                <img src="images/Dashboard-labels-nutriscore.png" class="p1-img"
+                                <img loading="lazy" src="images/Dashboard-labels-nutriscore.png" class="p1-img"
                                     alt="projet 1 dashboard">
                                 <div class="img-caption">Dashboard - Impact of labels on Nutri-Score</div>
                             </div>
                             <div class="img-wrapper">
-                                <img src="images/exemple-wf-knime.png" class="p1-img" alt="projet 1 workflow">
+                                <img loading="lazy" src="images/exemple-wf-knime.png" class="p1-img" alt="projet 1 workflow">
                                 <div class="img-caption">Knime Workflow - Multi-Layer Perceptron</div>
                             </div>
                         </div>
@@ -484,7 +495,7 @@
                     <!-- Guide utilisateur à gauche -->
                     <div class="all-illu-proj">
                         <a href="docs/Guide_utilisation.pdf" target="_blank">
-                            <img class="img-cv" src="images/Guide_utilisation.jpg"
+                            <img loading="lazy" class="img-cv" src="images/Guide_utilisation.jpg"
                                 alt="Guide d'utilisation de l'application">
                         </a>
                     </div>
@@ -493,11 +504,11 @@
                     <div class="project-contenu project-img">
                         <div class="img-list">
                             <div class="img-wrapper img-active">
-                                <img src="images/MCD-proj2.png" class="p2-img" alt="projet 2 MCD">
+                                <img loading="lazy" src="images/MCD-proj2.png" class="p2-img" alt="projet 2 MCD">
                                 <div class="img-caption">Conceptual Data Model (CDM) - Real Estate Application</div>
                             </div>
                             <div class="img-wrapper">
-                                <img src="images/appli-proj2.png" class="p2-img" alt="projet 2 architecture">
+                                <img loading="lazy" src="images/appli-proj2.png" class="p2-img" alt="projet 2 architecture">
                                 <div class="img-caption">Application Architecture - DAO Pattern & MVC</div>
                             </div>
                         </div>
@@ -641,41 +652,159 @@
                 </section>
             </div>
         </div>
-        <div id="balise-resumes"></div>
-        <div class="resumes">
-            <div class="docs-container">
-                <div class="doc-title">
-                    <h2>French Resume</h2>
-                </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/GWEf87n0wrc" title="YouTube video" loading="lazy" allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
-                <div class="docs">
-                    <a href="docs/CV-Draux-Erine-Fr.pdf" target="_blank">
-                        <img class="img-cv" src="images/CV-fr.jpg" alt="CV en français">
-                    </a>
+    <!-- CEP -->
+    <div id="balise-CEP"></div>
+    <section id="CEP">
+        <div class="cep-header">
+            <span class="cep-divider" aria-hidden="true"><i class="fas fa-plane"></i></span>
+            <h1 class="section-title"> CEP </h1>
+            <h2 class="cep-tagline"> 5-year plans, resumes and mobility </h2>
+            <a href="https://www.linkedin.com/in/erine-draux-17437a329/" target="_blank" class="cep-btn">
+                <i class="fab fa-linkedin-in"></i> My LinkedIn profile
+            </a>
+        </div>
+
+        <!-- 5-year plans : slider (ajoute une <img class="cep-slide"> par page supplémentaire) -->
+        <div class="cep-block" id="cep-presentation">
+            <h2 class="cep-subtitle"> My 5-year plans </h2>
+            <div class="cep-viewer" tabindex="0" aria-label="CEP slides" data-pdf="docs/CEP_Draux_Erine.pdf">
+                <div class="cep-slides">
+                    <img class="cep-slide active" src="images/cep/cep-5-year-plans.jpg" alt="CEP - My 5-year plans">
                 </div>
+                <button class="cep-nav cep-prev" aria-label="Previous slide">&#10094;</button>
+                <button class="cep-nav cep-next" aria-label="Next slide">&#10095;</button>
+                <span class="cep-counter"></span>
             </div>
-            <div class="docs-container">
-                <div class="doc-title">
-                    <h2>English Resume</h2>
-                </div>
+            <div class="cep-dots"></div>
+            <div class="cep-actions">
+                <a href="docs/CEP_Draux_Erine.pdf" target="_blank" class="cep-btn">
+                    <i class="fas fa-expand"></i> Open the PDF
+                </a>
+                <a href="docs/CEP_Draux_Erine.pdf" download class="cep-btn cep-btn-outline">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
 
-                <div class="docs">
-                    <a href="docs/CV-Draux-Erine-En.pdf" target="_blank">
-                        <img class="img-cv" src="images/CV-en.jpg" alt="CV en anglais">
-                    </a>
+        <!-- CV -->
+        <div id="balise-resumes"></div>
+        <div class="cep-block">
+            <h2 class="cep-subtitle"> My resumes </h2>
+            <div class="resumes">
+                <div class="docs-container">
+                    <div class="doc-title">
+                        <h2>French Resume</h2>
+                    </div>
+
+                    <div class="docs">
+                        <a href="docs/CV-Draux-Erine-Fr.pdf" target="_blank">
+                            <img loading="lazy" class="img-cv" src="images/CV-fr.jpg" alt="CV en français">
+                        </a>
+                    </div>
+                </div>
+                <div class="docs-container">
+                    <div class="doc-title">
+                        <h2>English Resume</h2>
+                    </div>
+
+                    <div class="docs">
+                        <a href="docs/CV-Draux-Erine-En.pdf" target="_blank">
+                            <img loading="lazy" class="img-cv" src="images/CV-en.jpg" alt="CV en anglais">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/GWEf87n0wrc" frameborder="0" allowfullscreen>
-            </iframe>
+
+        <!-- Mobilité -->
+        <div id="balise-mobility"></div>
+        <div id="mobility" class="cep-block">
+            <h2 class="cep-subtitle"> Mobility </h2>
+            <div id="map">
+                <img src="images/carte-mobilite.jpg" alt="Map of the mobility destinations: Germany and Italy"
+                    data-fallbacks="images/carte-mobilite.png,images/carte-mobilite-europe.png,images/carte-mobilite.jpeg" onerror="imgFallback(this)">
+            </div>
+            <div class="cep-actions cep-letter">
+                <a href="docs/Lettre_de_motivation_ERASMUS_Erine_DRAUX.pdf" target="_blank" class="cep-btn">
+                    <i class="fas fa-file-lines"></i> Read my cover letter for mobility
+                </a>
+                <a href="docs/Lettre_de_motivation_ERASMUS_Erine_DRAUX.pdf" download class="cep-btn cep-btn-outline">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+            <div id="mobilite-description">
+                <div>
+                    <h2> Student exchanges </h2>
+                    <p> Knowing that I want to improve and focus on data science, I looked for countries where this field is well developed for my 
+                        mobility. Germany in particular is strongly involved in AI and data science and is often seen as a 
+                        leader in this area. However, I am also attached to Italy, and the Politecnico di Torino offers a Data Science and Engineering 
+                        programme just as relevant to my needs. This is why I considered both 
+                        options, Turin being my first choice.</p>
+                    <br>
+                    <p>
+                        I am particularly interested in the Politecnico di Torino, in Italy. For me, it is an attractive option because it offers a 
+                        "Data Science and Engineering" master. It teaches how to handle data from start to finish (collecting it, storing it, analysing it). 
+                        Some courses, like Data Science and Machine Learning Lab, Statistical Methods in Data Science or Data Management and Visualization, 
+                        are directly related to my apprenticeship at Airbus, where I work with data, build tools around it and make it useful for collaborators. 
+                        This semester would help me strengthen these skills and see how data science is used for real engineering problems. I think it would also be 
+                        an opportunity to discover image processing. That's why I would like to take a course from another master's programme: "Computer Engineering (M.Sc.)" , such as Image Processing and Computer Vision.
+                        It is a field that interests me for one of my career project, and it would complete my data science courses.
+                        On a more personal note, Turin is located in Piedmont, a region I know well and feel attached to thanks to my family. 
+                        Being already familiar with the area would help me settle in quickly during my mobility semester and focus more easily on my studies. 
+                        It also makes this destination more meaningful to me than a place I would discover for the first time.
+                    </p>
+                    <a href="https://www.polito.it/" target="_blank"> Learn more about Politecnico di Torino</a>
+
+                    <p> At the same time, I am interested in TU Darmstadt as a destination for my studies because it offers
+                        strong master’s programmes in areas directly aligned with my ambitions. For instance, its
+                        “Artificial Intelligence and Machine Learning (M.Sc.)” track provides advanced courses in AI,
+                        Machine Learning, and related topics I want to specialise in or discover. Moreover, the university’s
+                        Data & AI research environment and its labs working on Machine Learning and data systems make
+                        it an excellent place to deepen both theoretical knowledge and practical skills. By choosing
+                        Darmstadt, I hope to build the strong technical foundation to pursue a future in data science or
+                        maybe AI. </p>
+                    <a href="https://www.tu-darmstadt.de/"> Learn more about TU Darmstadt</a>
+
+                    <p>
+                        Turin is my first choice because it matches my apprenticeship needs and my attachment to Piedmont. 
+                        Darmstadt remains my alternative for its strong AI and data science research and its technical depth, 
+                        and Sherbrooke for the international experience and the broad data-oriented education it offers. Together, 
+                        these three options reflect my ambition to grow both technically and personally.
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <h2> Leave with Airbus </h2>
+                        <p> With Airbus, two mobility destinations are offered : Spain and Germany.
+                            However, after contacting HR, I discussed the matter with my tutor, and it appears there are no
+                            data science departments in those countries.
+                            That's why, it would be more interesting for me to do my mobility in an another university.
+                        </p>
+                    </div>
+                    <div class="mobility-mails">
+                        <img loading="lazy" src="images/Mail-HR.png" onclick="openModal('images/Mail-HR.png')">
+                        <img loading="lazy" src="images/Mail-HR-Rep.png" onclick="openModal('images/Mail-HR-Rep.png')">
+                    </div>
+                    <div id="imageModal" class="modal" onclick="closeModal()">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"> Mails sent about mobility </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <span class="seperateur"> </span>
 
     <div id="balise-roleModels"> </div>
-    <section>
+    <section id="networking">
         <div class="section-title networking-title">
             <h1> Networking </h1>
         </div>
@@ -721,6 +850,7 @@
                     </p>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- CSR -->
@@ -750,8 +880,8 @@
                         <div class="fresque flip-card-front">
                             <h3> Digital Fresk & Climate Fresk </h3>
                             <div class="fresks-img">
-                                <img src="images/fresque-climat.jpg" class="flip-card-illustration fresk-climat">
-                                <img src="images/fresque-num.png" class="flip-card-illustration">
+                                <img loading="lazy" src="images/fresque-climat.jpg" class="flip-card-illustration fresk-climat">
+                                <img loading="lazy" src="images/fresque-num.png" class="flip-card-illustration">
                             </div>
                         </div>
                         <div class="fresque-numerique flip-card-back">
@@ -771,7 +901,7 @@
                     <div class="flip-card-content">
                         <div class="fresque-numerique flip-card-front">
                             <h3> Futurs Proches Festival </h3>
-                            <img src="images/logo-futurs-proches.png" class="flip-card-illustration">
+                            <img loading="lazy" src="images/logo-futurs-proches.png" class="flip-card-illustration">
                         </div>
                         <div class="futurs-proches flip-card-back">
                             <h3> Futurs Proches Festival </h3>
@@ -800,66 +930,6 @@
         </div>
     </section>
 
-    <!-- Mobility -->
-    <div id="balise-mobility"></div>
-    <section id="mobility">
-        <h1 class="section-title"> Mobility </h1>
-        <div id="map">
-            <img src="images/carte-mobilite.jpg">
-        </div>
-        <div id="mobilite-description">
-            <div>
-                <h2> Student exchanges </h2>
-                <p> Knowing I want to improve and focus on data science, bests countries for me to do my
-                    mobility are Germany and Canada : indeed, these countries are among the most advanced in this
-                    sector.</p>
-                <br>
-                <p> I am particularly interested in TU Darmstadt as a destination for my studies because it offers
-                    strong master’s programmes in areas directly aligned with my ambitions. For instance, its
-                    “Artificial Intelligence and Machine Learning (M.Sc.)” track provides advanced courses in AI,
-                    Machine Learning, and related topics I want to specialise in or discover. Moreover, the university’s
-                    Data & AI research environment and its labs working on Machine Learning and data systems make
-                    it an excellent place to deepen both theoretical knowledge and practical skills. By choosing
-                    Darmstadt, I hope to build the strong technical foundation to pursue a future in data science or
-                    maybe AI. </p>
-                <a href="https://www.tu-darmstadt.de/"> Learn more about TU Darmstadt</a>
-
-                <p>
-                    At the same time, I am interested in the Université de Sherbrooke. For me, it is an attractive
-                    option because it offers
-                    a Data Science program that could give me a solid base in data analysis and prepare me for global
-                    opportunities. Studying abroad at Sherbrooke would also allow me to experience a different academic
-                    culture and broaden my perspectives, which I believe is very valuable in a field that evolves as
-                    quickly as data science.
-                </p>
-                <a href="https://www.usherbrooke.ca/"> Learn more about Sherbrooke University</a>
-                <p>
-                    Choosing between these two : Darmstadt for its strong AI/data-science research and technical depth,
-                    and Sherbrooke for an international experience and broad data-oriented education reflects my
-                    ambition to grow both technically and humanly.
-                </p>
-            </div>
-            <div>
-                <div>
-                    <h2> Leave with Airbus </h2>
-                    <p> With Airbus, two mobility destinations are offered : Spain and Germany.
-                        However, after contacting HR, I discussed the matter with my tutor, and it appears there are no
-                        data science departments in those countries.
-                        That's why, it would be more interesting for me to do my mobility in an another university.
-                    </p>
-                </div>
-                <div class="mobility-mails">
-                    <img src="images/Mail-HR.png" onclick="openModal('images/Mail-HR.png')">
-                    <img src="images/Mail-HR-Rep.png" onclick="openModal('images/Mail-HR-Rep.png')">
-                </div>
-                <div id="imageModal" class="modal" onclick="closeModal()">
-                    <span class="close">&times;</span>
-                    <img class="modal-content" id="img01">
-                    <div id="caption"> Mails sent about mobility </div>
-                </div>
-            </div>
-    </section>
-
     <!-- Contact -->
     <div id="balise-contact"></div>
     <section id="contact">
@@ -877,7 +947,7 @@
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
                 </a>
-                <a href="#" class="contact-btn">
+                <a href="mailto:d31.erine@gmail.com" class="contact-btn">
                     <i class="fas fa-envelope"></i>
                     d31.erine@gmail.com
                 </a>

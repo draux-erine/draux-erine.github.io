@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalImg = document.getElementById("img01");
 
     // Fonction pour ouvrir la modale
-    window.openModal = function(imageSrc) {
-        console.log("Fonction openModal appelée ! Source de l'image :", imageSrc); 
+    const caption = document.getElementById("caption");
+
+    window.openModal = function(imageSrc, captionText) {
         modal.style.display = "block";
         modalImg.src = imageSrc;
+        if (caption) caption.textContent = captionText || "Mails sent about mobility";
         
         modalImg.onclick = function(event){
             event.stopPropagation();

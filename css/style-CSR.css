@@ -35,9 +35,10 @@
 
 .flip-card {
     position: relative;
-    width: 600px;
+    width: min(600px, 100%);
     height: 350px;
-    perspective: 500px;
+    perspective: 1000px;
+    cursor: pointer;
 }
 
 .flip-card-content {
@@ -53,7 +54,8 @@
     text-align: center;
 }
 
-.flip-card:hover .flip-card-content {
+.flip-card:hover .flip-card-content,
+.flip-card.flipped .flip-card-content {
     transform: rotateY(180deg);
     transition: transform 0.8s;
 }
@@ -126,10 +128,12 @@
    ============================================ */
 
 @media (max-width: 768px) {
+    #CSR {
+        padding: 40px 20px;
+    }
+
     .flip-card {
-        width: 100%;
-        max-width: 500px;
-        height: 400px;
+        height: 420px;
     }
     
     .fresks-img {
@@ -153,11 +157,28 @@
     }
     
     .flip-card {
-        height: 350px;
+        height: 460px;
     }
     
     .flip-card-front,
     .flip-card-back {
         padding: 20px;
+    }
+}
+.CSR-texts,
+#CSR > div {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sur écran tactile, pas de "hover" : on retourne la carte au toucher (cf. script) */
+@media (hover: none) {
+    .flip-card:hover .flip-card-content {
+        transform: none;
+    }
+
+    .flip-card.flipped .flip-card-content {
+        transform: rotateY(180deg);
     }
 }
